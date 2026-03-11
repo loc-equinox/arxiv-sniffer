@@ -12,12 +12,12 @@ relevance_threshold = 85
 eval_concurrency = 8
 
 [[topics]]
-name = "Agentic ai"
-description = "对于多个Agent相互协作的Agentic AI系统中系统层面有关问题的研究，如系统延迟、系统架构设计等。"
+name = "Concurrent reasoning"
+description = "基于形式化方法（如模型检测、定理证明）对并发程序进行正确性分析的相关研究，重点关注系统并发行为的建模、规约与验证。"
 
 [[topics]]
-name = "RLHF/RLVF"
-description = "大语言模型(LLM)的强化学习后训练(post-train)系统(RLHF/RLVF)中，系统层面性能优化方法的相关研究，包括对于系统延迟、吞吐量和计算资源利用率等方面的优化。"
+name = "LLM4SE"
+description = "面向大型软件系统的智能化构建与优化：研究大语言模型如何辅助代码开发、测试调试、形式化验证，并探索其在系统自动化调优方面的核心方法与关键技术。"
 
 [ai]
 

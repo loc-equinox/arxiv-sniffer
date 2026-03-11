@@ -8,7 +8,7 @@ user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 dir = "prompts"
 
 [filter]
-relevance_threshold = 85
+relevance_threshold = 70
 eval_concurrency = 8
 
 [[topics]]

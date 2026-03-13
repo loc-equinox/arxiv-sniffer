@@ -1,0 +1,1477 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Concurrent_reasoning/2026-03-12/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>LLM4SE - arXiv Sniffer Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2026-03-12" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="arXiv Sniffer Site" class="md-header__button md-logo" aria-label="arXiv Sniffer Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            arXiv Sniffer Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LLM4SE
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-grey" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../readme/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  说明
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Concurrent_reasoning/2026-03-12/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Concurrent reasoning
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  LLM4SE
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="arXiv Sniffer Site" class="md-nav__button md-logo" aria-label="arXiv Sniffer Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    arXiv Sniffer Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Concurrent_reasoning/2026-03-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrent reasoning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM4SE
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM4SE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kernelskill-a-multi-agent-framework-for-gpu-kernel-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KernelSkill: A Multi-Agent Framework for GPU Kernel Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KernelSkill: A Multi-Agent Framework for GPU Kernel Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#towards-cold-start-drafting-and-continual-refining-a-value-driven-memory-approach-with-application-to-npu-kernel-synthesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Towards Cold-Start Drafting and Continual Refining: A Value-Driven Memory Approach with Application to NPU Kernel Synthesis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Towards Cold-Start Drafting and Continual Refining: A Value-Driven Memory Approach with Application to NPU Kernel Synthesis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lookaheadkv-fast-and-accurate-kv-cache-eviction-by-glimpsing-into-the-future-without-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LookaheadKV: Fast and Accurate KV Cache Eviction by Glimpsing into the Future without Generation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LookaheadKV: Fast and Accurate KV Cache Eviction by Glimpsing into the Future without Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agentserve-algorithm-system-co-design-for-efficient-agentic-ai-serving-on-a-consumer-grade-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AgentServe: Algorithm-System Co-Design for Efficient Agentic AI Serving on a Consumer-Grade GPU
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AgentServe: Algorithm-System Co-Design for Efficient Agentic AI Serving on a Consumer-Grade GPU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attriguard-defeating-indirect-prompt-injection-in-llm-agents-via-causal-attribution-of-tool-invocations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AttriGuard: Defeating Indirect Prompt Injection in LLM Agents via Causal Attribution of Tool Invocations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AttriGuard: Defeating Indirect Prompt Injection in LLM Agents via Causal Attribution of Tool Invocations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#one-model-many-skills-parameter-efficient-fine-tuning-for-multitask-code-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One Model, Many Skills: Parameter-Efficient Fine-Tuning for Multitask Code Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="One Model, Many Skills: Parameter-Efficient Fine-Tuning for Multitask Code Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specops-a-fully-automated-ai-agent-testing-framework-in-real-world-gui-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SpecOps: A Fully Automated AI Agent Testing Framework in Real-World GUI Environments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SpecOps: A Fully Automated AI Agent Testing Framework in Real-World GUI Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        页面生成的统计项
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kernelskill-a-multi-agent-framework-for-gpu-kernel-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KernelSkill: A Multi-Agent Framework for GPU Kernel Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KernelSkill: A Multi-Agent Framework for GPU Kernel Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#towards-cold-start-drafting-and-continual-refining-a-value-driven-memory-approach-with-application-to-npu-kernel-synthesis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Towards Cold-Start Drafting and Continual Refining: A Value-Driven Memory Approach with Application to NPU Kernel Synthesis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Towards Cold-Start Drafting and Continual Refining: A Value-Driven Memory Approach with Application to NPU Kernel Synthesis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lookaheadkv-fast-and-accurate-kv-cache-eviction-by-glimpsing-into-the-future-without-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LookaheadKV: Fast and Accurate KV Cache Eviction by Glimpsing into the Future without Generation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LookaheadKV: Fast and Accurate KV Cache Eviction by Glimpsing into the Future without Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agentserve-algorithm-system-co-design-for-efficient-agentic-ai-serving-on-a-consumer-grade-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AgentServe: Algorithm-System Co-Design for Efficient Agentic AI Serving on a Consumer-Grade GPU
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AgentServe: Algorithm-System Co-Design for Efficient Agentic AI Serving on a Consumer-Grade GPU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attriguard-defeating-indirect-prompt-injection-in-llm-agents-via-causal-attribution-of-tool-invocations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AttriGuard: Defeating Indirect Prompt Injection in LLM Agents via Causal Attribution of Tool Invocations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AttriGuard: Defeating Indirect Prompt Injection in LLM Agents via Causal Attribution of Tool Invocations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#one-model-many-skills-parameter-efficient-fine-tuning-for-multitask-code-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One Model, Many Skills: Parameter-Efficient Fine-Tuning for Multitask Code Analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="One Model, Many Skills: Parameter-Efficient Fine-Tuning for Multitask Code Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specops-a-fully-automated-ai-agent-testing-framework-in-real-world-gui-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SpecOps: A Fully Automated AI Agent Testing Framework in Real-World GUI Environments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SpecOps: A Fully Automated AI Agent Testing Framework in Real-World GUI Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        页面生成的统计项
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="2026-03-12">2026-03-12论文总结</h1>
+<p><strong>主题</strong>: 面向大型软件系统的智能化构建与优化：研究大语言模型如何辅助代码开发、测试调试、形式化验证，并探索其在系统自动化调优方面的核心方法与关键技术。</p>
+<p>在这个主题下筛选得到了<strong>7篇</strong>论文。</p>
+<h2 id="kernelskill-a-multi-agent-framework-for-gpu-kernel-optimization">KernelSkill: A Multi-Agent Framework for GPU Kernel Optimization</h2>
+<h3 id="_1">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：8/10</li>
+<li>理由：论文直接讨论了大型语言模型（LLMs）在GPU内核优化中的应用，涉及'LLMs for GPU kernel generation and optimization'，这与研究主题中的'大语言模型辅助代码开发、测试调试、形式化验证'和'系统自动化调优'高度相关，但未明确提及测试调试或形式化验证。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文在KernelBench数据集上评估了GPU内核优化性能，使用了速度提升（speedup）作为核心指标，这直接关联于系统自动化调优中的性能优化场景，验证了方法在特定硬件优化任务中的有效性。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文提出的KernelSkill多智能体框架，通过知识驱动的专家技能和双级内存架构来优化GPU内核，这直接针对大型软件系统中自动化调优的痛点（如传统LLM方法中的试错低效和可解释性弱问题），可应用于系统级性能优化。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：10/10</li>
+<li>理由：论文明确提供了代码的公开访问链接（'Code is available at this https URL'），这符合研究主题中对快速跟进和应用的要求。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为84.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_2">摘要</h3>
+<p>Improving GPU kernel efficiency is crucial for advancing AI systems. Recent work has explored leveraging large language models (LLMs) for GPU kernel generation and optimization. However, existing LLM-based kernel optimization pipelines typically rely on opaque, implicitly learned heuristics within the LLMs to determine optimization strategies. This leads to inefficient trial-and-error and weakly interpretable optimizations. Our key insight is to replace implicit heuristics with expert optimization skills that are knowledge-driven and aware of task trajectories. Specifically, we present KernelSkill, a multi-agent framework with a dual-level memory architecture. KernelSkill operates by coordinating agents with long-term memory of reusable expert skills and short-term memory to prevent repetitive backtracking. On KernelBench Levels 1-3, KernelSkill achieves a 100% success rate and average speedups of 5.44x, 2.82x, and 1.92x over Torch Eager on Levels 1, 2, and 3, respectively, outperforming prior baselines. Code is available at this https URL.</p>
+<p><a href="https://arxiv.org/abs/2603.10085">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.10085.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.10085">下载Tex</a></p>
+<h2 id="towards-cold-start-drafting-and-continual-refining-a-value-driven-memory-approach-with-application-to-npu-kernel-synthesis">Towards Cold-Start Drafting and Continual Refining: A Value-Driven Memory Approach with Application to NPU Kernel Synthesis</h2>
+<h3 id="_3">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：9/10</li>
+<li>理由：论文直接涉及“Large Language Models”（大语言模型）、“kernel synthesis”（内核合成）、“reinforcement learning”（强化学习）、“automation”（自动化）、“optimization”（优化，如延迟优化）和“NPU”（特定硬件）等技术术语，这些与研究主题中的“大语言模型”、“代码开发”、“系统自动化调优”和“形式化验证”（通过合成任务隐含）高度匹配，核心讨论聚焦于主题相关技术。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文实验针对NPU（神经网络处理器）硬件上的内核合成任务，构建了KernelBench的NPU变体作为评估环境，并使用了正确性和延迟（速度提升）作为核心指标。这直接关联于研究主题中“系统自动化调优”和“代码开发”在特定硬件（如NPU）上的应用场景，实验验证了方法在数据稀缺编程领域（如NPU编程）的有效性，适配性较高。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文提出的EvoKernel框架，作为一种基于记忆的强化学习方法，专注于内核合成的自动起草和持续优化，通过值驱动的检索和跨任务记忆共享来提升性能。这直接对应研究主题中的“代码开发”（如内核合成）、“系统自动化调优”（如迭代优化延迟）以及“大语言模型辅助”（框架部署大语言模型到数据稀缺领域），方法针对了数据稀缺和冷启动的痛点，关联性很强。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：3/10</li>
+<li>理由：论文未明确提及开源代码、预训练模型或公开数据集的提供情况，仅提供了一个官方页面链接，这通常意味着代码可能未开源或获取途径不明确，因此可获得性较低。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为82.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_4">摘要</h3>
+<p>Deploying Large Language Models to data-scarce programming domains poses significant challenges, particularly for kernel synthesis on emerging Domain-Specific Architectures where a "Data Wall" limits available training data. While models excel on data-rich platforms like CUDA, they suffer catastrophic performance drops on data-scarce ecosystems such as NPU programming. To overcome this cold-start barrier without expensive fine-tuning, we introduce EvoKernel, a self-evolving agentic framework that automates the lifecycle of kernel synthesis from initial drafting to continual refining. EvoKernel addresses this by formulating the synthesis process as a memory-based reinforcement learning task. Through a novel value-driven retrieval mechanism, it learns stage-specific Q-values that prioritize experiences based on their contribution to the current objective, whether bootstrapping a feasible draft or iteratively refining latency. Furthermore, by enabling cross-task memory sharing, the agent generalizes insights from simple to complex operators. By building an NPU variant of KernelBench and evaluating on it, EvoKernel improves frontier models' correctness from 11.0% to 83.0% and achieves a median speedup of 3.60x over initial drafts through iterative refinement. This demonstrates that value-guided experience accumulation allows general-purpose models to master the kernel synthesis task on niche hardware ecosystems. Our official page is available at this https URL.</p>
+<p><a href="https://arxiv.org/abs/2603.10846">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.10846.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.10846">下载Tex</a></p>
+<h2 id="lookaheadkv-fast-and-accurate-kv-cache-eviction-by-glimpsing-into-the-future-without-generation">LookaheadKV: Fast and Accurate KV Cache Eviction by Glimpsing into the Future without Generation</h2>
+<h3 id="_5">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：8/10</li>
+<li>理由：论文直接讨论了Transformer-based large language models (LLMs)、autoregressive inference、KV caching等技术，这些是研究主题中'大语言模型'和'系统自动化调优'的相关核心技术，但未提及代码开发、测试调试或形式化验证的具体术语。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：论文在'long-context understanding benchmarks'上进行了广泛实验，评估了'time-to-first-token'等效率指标，这直接关联研究主题中'系统自动化调优'的性能优化场景，但未明确涉及代码开发、测试调试或形式化验证的具体实验设置。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：6/10</li>
+<li>理由：论文提出的LookaheadKV框架专注于优化LLM推理时的KV缓存驱逐，以提高长上下文任务效率，这间接支持研究主题中'系统自动化调优'的优化方面，但未直接解决代码开发、测试调试或形式化验证等核心问题。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：10/10</li>
+<li>理由：论文摘要末尾明确声明'Our code is available at this https URL'，提供了可访问的开源代码，这符合研究主题中'探索核心方法与关键技术'对快速跟进和应用的要求。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为76.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_6">摘要</h3>
+<p>Transformer-based large language models (LLMs) rely on key-value (KV) caching to avoid redundant computation during autoregressive inference. While this mechanism greatly improves efficiency, the cache size grows linearly with the input sequence length, quickly becoming a bottleneck for long-context tasks. Existing solutions mitigate this problem by evicting prompt KV that are deemed unimportant, guided by estimated importance scores. Notably, a recent line of work proposes to improve eviction quality by "glimpsing into the future", in which a draft generator produces a surrogate future response approximating the target model's true response, and this surrogate is subsequently used to estimate the importance of cached KV more accurately. However, these approaches rely on computationally expensive draft generation, which introduces substantial prefilling overhead and limits their practicality in real-world deployment. To address this challenge, we propose LookaheadKV, a lightweight eviction framework that leverages the strength of surrogate future response without requiring explicit draft generation. LookaheadKV augments transformer layers with parameter-efficient modules trained to predict true importance scores with high accuracy. Our design ensures negligible runtime overhead comparable to existing inexpensive heuristics, while achieving accuracy superior to more costly approximation methods. Extensive experiments on long-context understanding benchmarks, across a wide range of models, demonstrate that our method not only outperforms recent competitive baselines in various long-context understanding tasks, but also reduces the eviction cost by up to 14.5x, leading to significantly faster time-to-first-token. Our code is available at this https URL.</p>
+<p><a href="https://arxiv.org/abs/2603.10899">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.10899.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.10899">下载Tex</a></p>
+<h2 id="agentserve-algorithm-system-co-design-for-efficient-agentic-ai-serving-on-a-consumer-grade-gpu">AgentServe: Algorithm-System Co-Design for Efficient Agentic AI Serving on a Consumer-Grade GPU</h2>
+<h3 id="_7">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：8/10</li>
+<li>理由：论文直接讨论LLM（大语言模型）、AI代理、推理服务系统、GPU资源分配等技术，与主题中“大语言模型辅助”和“系统自动化调优”部分匹配，但未涉及代码开发、测试调试、形式化验证等具体术语。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：6/10</li>
+<li>理由：论文实验聚焦于Agentic AI推理服务系统的性能（如延迟、吞吐量），评估指标（TTFT、TPOT）是系统优化的标准，但未直接涉及代码开发、测试调试或形式化验证等主题核心场景，适配性有限。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：论文提出的AgentServe系统通过算法-系统协同设计优化LLM代理在GPU上的推理效率，可间接支持系统自动化调优（如资源分配），但未直接针对代码开发、测试调试或形式化验证等主题核心问题，关联性较弱。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：5/10</li>
+<li>理由：论文摘要未提及是否开源代码、模型或数据集，仅描述了系统设计和方法，无法直接判断可获得性，需查阅原文或作者页面确认。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为71.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_8">摘要</h3>
+<p>Large language models (LLMs) are increasingly deployed as AI agents that operate in short reasoning-action loops, interleaving model computation with external calls. Unlike traditional chat applications, these agentic workloads require inference serving systems to balance low latency, stable token emission, and throughput under multiple request arrivals from different AI agents. Recent deployments highlight a shift toward running small language models (SLMs) locally on consumer-grade GPUs, driven by privacy, compliance, and cost constraints. When heterogeneous requests overlap on a single GPU, long prefills and short decodes contend for resources, creating head-of-line blocking that destabilizes interactive performance. By analyzing agent workloads, we observe that their execution naturally separates into cold prefills, which process long system prompts, resume prefills, which append tool outputs to cached contexts, and short decodes, which are latency-critical. This mix intensifies contention compared to conventional chatbot serving. We present AgentServe, a single-GPU serving system that ensures stable multi-agent execution under such conditions by isolating prefills from decodes, applying dynamic budgeting to resume prefills, and allocating GPU resources through pre-established CUDA Green Context slots with adaptive control. Evaluation results show that AgentServe significantly improves latency stability while sustaining competitive throughput, achieving up to 2.8x TTFT improvement and 2.7x TPOT improvement over state-of-the-art baselines across different settings.</p>
+<p><a href="https://arxiv.org/abs/2603.10342">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.10342.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.10342">下载Tex</a></p>
+<h2 id="attriguard-defeating-indirect-prompt-injection-in-llm-agents-via-causal-attribution-of-tool-invocations">AttriGuard: Defeating Indirect Prompt Injection in LLM Agents via Causal Attribution of Tool Invocations</h2>
+<h3 id="_9">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：8/10</li>
+<li>理由：论文直接讨论了LLM agents、Indirect Prompt Injection (IPI)、工具调用等术语，这些与主题中的“大语言模型如何辅助代码开发”部分相关，但未涉及大型软件系统、代码开发、测试调试、形式化验证或系统自动化调优的具体技术。核心焦点是安全防御而非构建与优化。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：6/10</li>
+<li>理由：论文实验涉及四种LLM和两个智能体基准测试，评估了攻击成功率（ASR）和效用损失，这些是安全领域常见的评估指标。然而，实验主要针对LLM智能体的安全防御，而非直接面向大型软件系统的构建、优化或自动化调优，与主题的实验场景适配性有限。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：论文提出的AttriGuard方法专注于防御LLM智能体中的间接提示注入攻击，通过因果归因和运行时验证来增强智能体安全性。虽然智能体可用于代码开发或系统调优，但该方法本身并非直接解决代码开发、测试调试、形式化验证或系统自动化调优的核心问题，而是更侧重于安全防护。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：5/10</li>
+<li>理由：论文摘要未明确提及代码或数据的可获得性，但此类安全研究通常倾向于开源以促进验证和应用。然而，基于摘要信息，无法确认是否提供了开源代码、预训练模型或公开数据集。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为71.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_10">摘要</h3>
+<p>LLM agents are highly vulnerable to Indirect Prompt Injection (IPI), where adversaries embed malicious directives in untrusted tool outputs to hijack execution. Most existing defenses treat IPI as an input-level semantic discrimination problem, which often fails to generalize to unseen payloads. We propose a new paradigm, action-level causal attribution, which secures agents by asking why a particular tool call is produced. The central goal is to distinguish tool calls supported by the user's intent from those causally driven by untrusted observations. We instantiate this paradigm with AttriGuard, a runtime defense based on parallel counterfactual tests. For each proposed tool call, AttriGuard verifies its necessity by re-executing the agent under a control-attenuated view of external observations. Technically, AttriGuard combines teacher-forced shadow replay to prevent attribution confounding, hierarchical control attenuation to suppress diverse control channels while preserving task-relevant information, and a fuzzy survival criterion that is robust to LLM stochasticity. Across four LLMs and two agent benchmarks, AttriGuard achieves 0% ASR under static attacks with negligible utility loss and moderate overhead. Importantly, it remains resilient under adaptive optimization-based attacks in settings where leading defenses degrade significantly.</p>
+<p><a href="https://arxiv.org/abs/2603.10749">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.10749.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.10749">下载Tex</a></p>
+<h2 id="one-model-many-skills-parameter-efficient-fine-tuning-for-multitask-code-analysis">One Model, Many Skills: Parameter-Efficient Fine-Tuning for Multitask Code Analysis</h2>
+<h3 id="_11">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：7/10</li>
+<li>理由：论文直接讨论了与研究主题相关的核心技术：大语言模型（LLMs）、参数高效微调（PEFT）、多任务学习、代码分析任务（如代码生成），并引用了多个模型（如CodeLlama、StarCoder）。技术术语高度匹配主题中的“大语言模型如何辅助代码开发”，但未明确提及形式化验证或系统自动化调优的具体方法。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：实验针对代码分析任务（如代码生成、分析等），使用开源LLMs（DeepSeek、Qwen、Mistral等）和标准评估指标（如准确性、效率），验证了PEFT在多任务场景下的有效性。这直接适配研究主题中“大语言模型辅助代码开发、测试调试”的部分，但未明确涉及形式化验证或系统自动化调优。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文提出的参数高效微调（PEFT）方法，特别是多任务PEFT，可被直接应用于研究主题的核心问题：通过减少计算和存储成本，使LLMs更高效地辅助多代码任务（如代码分析和生成）。它针对了主题中“智能化构建与优化”的痛点，即全微调的高成本，但未深入探讨形式化验证或系统调优的具体应用。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：5/10</li>
+<li>理由：论文未明确声明提供开源代码、预训练模型或公开数据集，但引用了多个开源模型（如DeepSeek、Qwen等）作为基准，暗示可能依赖公开资源。然而，缺乏直接证据表明作者发布了其PEFT模块或实验代码，因此可获得性存疑。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为70.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_12">摘要</h3>
+<p>Large language models have recently surpassed specialized systems on code generation, yet their effectiveness on other code-analysis tasks remains less clear. At the same time, multi-task learning offers a way to unify diverse objectives within a single model, but fully fine-tuning LLMs across tasks is computationally prohibitive. Parameter-efficient fine-tuning mitigates this cost by updating only a small fraction of weights. Although PEFT has proven effective in single-task settings, its potential for multi-task learning has not yet been systematically explored. We present the first comprehensive evaluation of multi-task PEFT for code analysis, comparing several methods across diverse tasks and model architectures. Our experiments show that a single PEFT module shared across tasks can match, and in some cases surpass, full multi-task fine-tuning, confirming that the benefits of PEFT extend beyond isolated tasks. When comparing single-task and multi-task setups, we find that multi-task PEFT achieves a favorable performance-efficiency trade-off: it delivers accuracy close to single-task fine-tuning while reducing storage requirements, cutting the number of trainable parameters by a factor of the task count, and lowering computation costs by as much as 85%. At the same time, multi-task gains remain sensitive to task grouping. Through task-pairing experiments, we identify key factors shaping outcomes: task stability, model architecture, task complementarity, asymmetry, and dataset quality determine the success of co-fine-tuning. Finally, we benchmark efficient multi-task PEFT against direct prompting of open-source general-purpose LLMs, including DeepSeek, Qwen, Mistral, CodeLlama, and StarCoder. Despite their strong performance in code generation, these models underperform on analysis tasks, where even a 1B-parameter model with multi-task PEFT achieves significantly better results.</p>
+<p><a href="https://arxiv.org/abs/2603.09978">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.09978.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.09978">下载Tex</a></p>
+<h2 id="specops-a-fully-automated-ai-agent-testing-framework-in-real-world-gui-environments">SpecOps: A Fully Automated AI Agent Testing Framework in Real-World GUI Environments</h2>
+<h3 id="_13">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：7/10</li>
+<li>理由：论文直接讨论了大型语言模型（LLMs）、AI代理、自动化测试框架（SpecOps）、真实世界GUI环境，并提到了AutoGPT作为基准。这些术语与研究主题中的“大语言模型”、“代码开发、测试调试”和“系统自动化调优”高度相关，但未深入涉及形式化验证或系统构建优化。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文实验在真实GUI环境中测试了五个不同的现实世界AI代理，评估了规划准确性、执行成功率和错误检测效果，并比较了AutoGPT等基准。这直接验证了在真实世界代理测试场景下的有效性，与研究主题中“测试调试”和“系统自动化调优”的子领域高度适配。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文提出的SpecOps框架是一个完全自动化的测试框架，专门用于评估基于GUI的AI代理。它通过分解测试过程为四个阶段，并使用基于LLM的专家代理来处理，直接针对研究主题中“测试调试”的核心问题，即自动化、可靠地测试复杂AI代理。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：1/10</li>
+<li>理由：论文摘要未明确提及代码、模型或数据集的公开可用性。摘要仅描述了框架的评估结果和成本，没有提供关于开源或可获取性的信息。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为70.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_14">摘要</h3>
+<p>Autonomous AI agents powered by large language models (LLMs) are increasingly deployed in real-world applications, where reliable and robust behavior is critical. However, existing agent evaluation frameworks either rely heavily on manual efforts, operate within simulated environments, or lack focus on testing complex, multimodal, real-world agents. We introduce SpecOps, a novel, fully automated testing framework designed to evaluate GUI-based AI agents in real-world environments. SpecOps decomposes the testing process into four specialized phases - test case generation, environment setup, test execution, and validation - each handled by a distinct LLM-based specialist agent. This structured architecture addresses key challenges including end-to-end task coherence, robust error handling, and adaptability across diverse agent platforms including CLI tools, web apps, and browser extensions. In comprehensive evaluations across five diverse real-world agents, SpecOps outperforms baselines including general-purpose agentic systems such as AutoGPT and LLM-crafted automation scripts in planning accuracy, execution success, and bug detection effectiveness. SpecOps identifies 164 true bugs in the real-world agents with an F1 score of 0.89. With a cost of under 0.73 USD and a runtime of under eight minutes per test, it demonstrates its practical viability and superiority in automated, real-world agent testing.</p>
+<p><a href="https://arxiv.org/abs/2603.10268">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.10268.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.10268">下载Tex</a></p>
+<h2 id="_15">页面生成的统计项</h2>
+<p>本页面使用deepseek-chat模型生成，token用量统计如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">用量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">提示词缓存未命中tokens</td>
+<td style="text-align: left;">745176</td>
+</tr>
+<tr>
+<td style="text-align: left;">提示词缓存命中tokens</td>
+<td style="text-align: left;">70272</td>
+</tr>
+<tr>
+<td style="text-align: left;">补全tokens</td>
+<td style="text-align: left;">334119</td>
+</tr>
+<tr>
+<td style="text-align: left;">思考链tokens</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">总计</td>
+<td style="text-align: left;">1149567</td>
+</tr>
+</tbody>
+</table>
+<p>页面生成的总用时为18m 11s</p>
+<p>&lt;&lt; <a href="./mkdocs/docs/LLM4SE/2026-03-11.md">昨天的论文总结</a></p>
+<p>&gt;&gt; <a href="./mkdocs/docs/LLM4SE/2026-03-13.md">明天的论文总结</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

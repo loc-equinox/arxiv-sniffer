@@ -1,0 +1,2117 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Concurrent_reasoning/2026-03-31/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>LLM4SE - arXiv Sniffer Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2026-03-31" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="arXiv Sniffer Site" class="md-header__button md-logo" aria-label="arXiv Sniffer Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            arXiv Sniffer Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LLM4SE
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-grey" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../readme/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  说明
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Concurrent_reasoning/2026-03-31/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Concurrent reasoning
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  LLM4SE
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="arXiv Sniffer Site" class="md-nav__button md-logo" aria-label="arXiv Sniffer Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    arXiv Sniffer Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Concurrent_reasoning/2026-03-31/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrent reasoning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM4SE
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM4SE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kat-coder-v2-technical-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KAT-Coder-V2 Technical Report
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KAT-Coder-V2 Technical Report">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combench-a-repo-level-real-world-benchmark-for-compilation-error-repair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ComBench: A Repo-level Real-world Benchmark for Compilation Error Repair
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ComBench: A Repo-level Real-world Benchmark for Compilation Error Repair">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#needle-in-the-repo-a-benchmark-for-maintainability-in-ai-generated-repository-edits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Needle in the Repo: A Benchmark for Maintainability in AI-Generated Repository Edits
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Needle in the Repo: A Benchmark for Maintainability in AI-Generated Repository Edits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crossing-the-nlpl-divide-information-flow-analysis-across-the-nlpl-boundary-in-llm-integrated-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crossing the NL/PL Divide: Information Flow Analysis Across the NL/PL Boundary in LLM-Integrated Code
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Crossing the NL/PL Divide: Information Flow Analysis Across the NL/PL Boundary in LLM-Integrated Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rtlseek-boosting-the-llm-based-rtl-generation-with-multi-stage-diversity-oriented-reinforcement-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RTLSeek: Boosting the LLM-Based RTL Generation with Multi-Stage Diversity-Oriented Reinforcement Learning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RTLSeek: Boosting the LLM-Based RTL Generation with Multi-Stage Diversity-Oriented Reinforcement Learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#effiskill-agent-skill-based-automated-code-efficiency-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EffiSkill: Agent Skill Based Automated Code Efficiency Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EffiSkill: Agent Skill Based Automated Code Efficiency Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codebase-memory-tree-sitter-based-knowledge-graphs-for-llm-code-exploration-via-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codebase-Memory: Tree-Sitter-Based Knowledge Graphs for LLM Code Exploration via MCP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Codebase-Memory: Tree-Sitter-Based Knowledge Graphs for LLM Code Exploration via MCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kernel-smith-a-unified-recipe-for-evolutionary-kernel-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kernel-Smith: A Unified Recipe for Evolutionary Kernel Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kernel-Smith: A Unified Recipe for Evolutionary Kernel Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predicting-program-correctness-by-ensemble-semantic-entropy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Predicting Program Correctness By Ensemble Semantic Entropy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Predicting Program Correctness By Ensemble Semantic Entropy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compressing-code-context-for-llm-based-issue-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compressing Code Context for LLM-based Issue Resolution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compressing Code Context for LLM-based Issue Resolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cirrusbench-evaluating-llm-based-agents-beyond-correctness-in-real-world-cloud-service-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CirrusBench: Evaluating LLM-based Agents Beyond Correctness in Real-World Cloud Service Environments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CirrusBench: Evaluating LLM-based Agents Beyond Correctness in Real-World Cloud Service Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rsr-core-a-high-performance-engine-for-low-bit-matrix-vector-multiplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RSR-core: A High-Performance Engine for Low-Bit Matrix-Vector Multiplication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RSR-core: A High-Performance Engine for Low-Bit Matrix-Vector Multiplication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        页面生成的统计项
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#kat-coder-v2-technical-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KAT-Coder-V2 Technical Report
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KAT-Coder-V2 Technical Report">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combench-a-repo-level-real-world-benchmark-for-compilation-error-repair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ComBench: A Repo-level Real-world Benchmark for Compilation Error Repair
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ComBench: A Repo-level Real-world Benchmark for Compilation Error Repair">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#needle-in-the-repo-a-benchmark-for-maintainability-in-ai-generated-repository-edits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Needle in the Repo: A Benchmark for Maintainability in AI-Generated Repository Edits
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Needle in the Repo: A Benchmark for Maintainability in AI-Generated Repository Edits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crossing-the-nlpl-divide-information-flow-analysis-across-the-nlpl-boundary-in-llm-integrated-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crossing the NL/PL Divide: Information Flow Analysis Across the NL/PL Boundary in LLM-Integrated Code
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Crossing the NL/PL Divide: Information Flow Analysis Across the NL/PL Boundary in LLM-Integrated Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rtlseek-boosting-the-llm-based-rtl-generation-with-multi-stage-diversity-oriented-reinforcement-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RTLSeek: Boosting the LLM-Based RTL Generation with Multi-Stage Diversity-Oriented Reinforcement Learning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RTLSeek: Boosting the LLM-Based RTL Generation with Multi-Stage Diversity-Oriented Reinforcement Learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#effiskill-agent-skill-based-automated-code-efficiency-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EffiSkill: Agent Skill Based Automated Code Efficiency Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EffiSkill: Agent Skill Based Automated Code Efficiency Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codebase-memory-tree-sitter-based-knowledge-graphs-for-llm-code-exploration-via-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Codebase-Memory: Tree-Sitter-Based Knowledge Graphs for LLM Code Exploration via MCP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Codebase-Memory: Tree-Sitter-Based Knowledge Graphs for LLM Code Exploration via MCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kernel-smith-a-unified-recipe-for-evolutionary-kernel-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kernel-Smith: A Unified Recipe for Evolutionary Kernel Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Kernel-Smith: A Unified Recipe for Evolutionary Kernel Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predicting-program-correctness-by-ensemble-semantic-entropy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Predicting Program Correctness By Ensemble Semantic Entropy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Predicting Program Correctness By Ensemble Semantic Entropy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compressing-code-context-for-llm-based-issue-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compressing Code Context for LLM-based Issue Resolution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compressing Code Context for LLM-based Issue Resolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cirrusbench-evaluating-llm-based-agents-beyond-correctness-in-real-world-cloud-service-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CirrusBench: Evaluating LLM-based Agents Beyond Correctness in Real-World Cloud Service Environments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CirrusBench: Evaluating LLM-based Agents Beyond Correctness in Real-World Cloud Service Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rsr-core-a-high-performance-engine-for-low-bit-matrix-vector-multiplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RSR-core: A High-Performance Engine for Low-Bit Matrix-Vector Multiplication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RSR-core: A High-Performance Engine for Low-Bit Matrix-Vector Multiplication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        页面生成的统计项
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="2026-03-31">2026-03-31论文总结</h1>
+<p><strong>主题</strong>: 面向大型软件系统的智能化构建与优化：研究大语言模型如何辅助代码开发、测试调试、形式化验证，并探索其在系统自动化调优方面的核心方法与关键技术。</p>
+<p>在这个主题下筛选得到了<strong>12篇</strong>论文。</p>
+<h2 id="kat-coder-v2-technical-report">KAT-Coder-V2 Technical Report</h2>
+<h3 id="_1">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：9/10</li>
+<li>理由：论文直接讨论了与研究主题高度相关的核心技术，包括'agentic coding model'（智能体编码模型）、'supervised fine-tuning'（监督微调）、'reinforcement learning'（强化学习）、'SWE-bench'（软件工程基准）等，这些术语与主题中的'大语言模型辅助代码开发、测试调试'高度匹配。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文在SWE-bench、PinchBench、Terminal-Bench、tau^2-Bench等多个公认的代码生成与智能体评估基准上进行了测试，这些是评估大语言模型辅助代码开发能力的标准数据集，实验有效验证了模型在代码开发场景下的性能。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文提出的'Specialize-then-Unify'范式、多专家领域（SWE, WebCoding, Terminal等）的分解与整合、强化学习训练（包括MCLA和Tree Training方法）以及KwaiEnv基础设施，直接针对并可用于解决'大语言模型辅助代码开发、测试调试'这一核心问题，旨在提升智能体编码的效率和能力。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：10/10</li>
+<li>理由：论文明确声明模型在指定URL公开可用，提供了预训练模型，便于快速跟进和应用。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为91.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_2">摘要</h3>
+<p>We present KAT-Coder-V2, an agentic coding model developed by the KwaiKAT team at Kuaishou. KAT-Coder-V2 adopts a "Specialize-then-Unify" paradigm that decomposes agentic coding into five expert domains - SWE, WebCoding, Terminal, WebSearch, and General - each undergoing independent supervised fine-tuning and reinforcement learning, before being consolidated into a single model via on-policy distillation. We develop KwaiEnv, a modular infrastructure sustaining tens of thousands of concurrent sandbox instances, and scale RL training along task complexity, intent alignment, and scaffold generalization. We further propose MCLA for stabilizing MoE RL training and Tree Training for eliminating redundant computation over tree-structured trajectories with up to 6.2x speedup. KAT-Coder-V2 achieves 79.6% on SWE-bench Verified (vs. Claude Opus 4.6 at 80.8%), 88.7 on PinchBench (surpassing GLM-5 and MiniMax M2.7), ranks first across all three frontend aesthetics scenarios, and maintains strong generalist scores on Terminal-Bench Hard (46.8) and tau^2-Bench (93.9). Our model is publicly available at this https URL.</p>
+<p><a href="https://arxiv.org/abs/2603.27703">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.27703.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.27703">下载Tex</a></p>
+<h2 id="combench-a-repo-level-real-world-benchmark-for-compilation-error-repair">ComBench: A Repo-level Real-world Benchmark for Compilation Error Repair</h2>
+<h3 id="_3">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：9/10</li>
+<li>理由：技术术语高度匹配。论文直接讨论了“LLMs”（大语言模型）、“GPT-5”等模型，以及“Automated Compilation Error Repair (ACER)”（自动化编译错误修复），这些与研究主题中的“大语言模型如何辅助代码开发、测试调试”紧密相关。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：实验设置高度适配主题。论文使用真实世界的GitHub CI历史数据构建基准，并评估了12个现代LLM（包括GPT-5）在编译错误修复中的表现，直接验证了LLM在代码开发辅助（编译错误修复）场景下的有效性。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文提出的基准构建方法（自动化挖掘真实失败、高精度识别修复补丁、高保真重现构建环境）和评估框架（直接和基于代理的修复设置）可直接应用于研究主题中的“代码开发、测试调试”环节，针对编译错误修复这一核心痛点。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：5/10</li>
+<li>理由：论文未明确提及开源代码、预训练模型或公开数据集的提供情况。摘要中提到了构建基准ComBench，但未说明其公开可用性。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为84.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_4">摘要</h3>
+<p>Compilation errors pose pervasive and critical challenges in software development, significantly hindering productivity. Therefore, Automated Compilation Error Repair (ACER) techniques are proposed to mitigate these issues. Despite recent advancements in ACER, its real-world performance remains poorly evaluated. This can be largely attributed to the limitations of existing benchmarks, \ie decontextualized single-file data, lack of authentic source diversity, and biased local task modeling that ignores crucial repository-level complexities. To bridge this critical gap, we propose ComBench, the first repository-level, reproducible real-world benchmark for C/C++ compilation error repair. ComBench is constructed through a novel, automated framework that systematically mines real-world failures from the GitHub CI histories of large-scale open-source projects. Our framework contributes techniques for the high-precision identification of ground-truth repair patches from complex version histories and a high-fidelity mechanism for reproducing the original, ephemeral build environments. To ensure data quality, all samples in ComBench are execution-verified -- guaranteeing reproducible failures and build success with ground-truth patches. Using ComBench, we conduct a comprehensive evaluation of 12 modern LLMs under both direct and agent-based repair settings. Our experiments reveal a significant gap between a model's ability to achieve syntactic correctness (a 73% success rate for GPT-5) and its ability to ensure semantic correctness (only 41% of its patches are valid). We also find that different models exhibit distinct specializations for different error types. ComBench provides a robust and realistic platform to guide the future development of ACER techniques capable of addressing the complexities of modern software development.</p>
+<p><a href="https://arxiv.org/abs/2603.27333">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.27333.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.27333">下载Tex</a></p>
+<h2 id="needle-in-the-repo-a-benchmark-for-maintainability-in-ai-generated-repository-edits">Needle in the Repo: A Benchmark for Maintainability in AI-Generated Repository Edits</h2>
+<h3 id="_5">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：9/10</li>
+<li>理由：论文中使用的技术术语与研究主题高度重合。它直接讨论了AI编码代理、大语言模型（如GPT、Claude、Gemini、Qwen）、代码生成、可维护性（模块化、可测试性）、仓库编辑等，这些都是主题“面向大型软件系统的智能化构建与优化”的核心技术。论文聚焦于评估LLMs在代码开发中的表现，与主题词紧密匹配。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文的实验设置高度适配研究主题。它评估了GPT、Claude、Gemini和Qwen等大语言模型（LLMs）在代码生成任务中的表现，直接对应“大语言模型如何辅助代码开发”。实验使用多文件代码库和结构预言机来评估可维护性（如模块化、可测试性），这验证了在“智能化构建与优化”背景下模型的有效性，并暴露了传统评估忽略的失败面。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文提出的NITR方法可直接应用于研究主题的核心问题。它针对AI生成代码的可维护性风险（如弱模块化、可测试性），这是“智能化构建与优化”中代码开发和系统调优的关键痛点。方法通过诊断探针和结构预言机评估代码结构，有助于改进LLMs在代码生成、测试调试和自动化调优中的质量，尽管未直接涉及形式化验证。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：5/10</li>
+<li>理由：论文明确提出了一个名为Needle in the Repo (NITR)的基准测试框架，并暗示了其作为诊断探针和预言机框架的结构。摘要中提到了“隐藏的评估工具链”，但未明确说明代码、模型或数据集是否开源。通常，此类基准测试论文倾向于提供代码以促进可重复性，但此处未直接声明，因此存在不确定性。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为84.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_6">摘要</h3>
+<p>AI coding agents can now complete complex programming tasks, but existing evaluations largely emphasize behavioral correctness and often overlook maintainability risks such as weak modularity or testability. We present Needle in the Repo (NITR), a diagnostic probe-and-oracle framework for evaluating whether behaviorally correct repository edits preserve maintainable structure. NITR distills recurring software engineering wisdom into controlled probes embedded in small, realistic multi-file codebases, each designed so that success depends primarily on one targeted maintainability dimension. Each probe is paired with a hidden evaluation harness that combines functional tests for required behavior with structural oracles that encode the targeted maintainability constraint and return interpretable diagnoses. Using NITR, we evaluate 23 coding configurations across GPT, Claude, Gemini, and Qwen families in both direct-inference and agent-based settings. Current AI coding systems remain far from robust: on average, configurations solve only 36.2% of cases, the best reaches 57.1%, and performance drops from 53.5% on micro cases to 20.6% on multi-step cases. The hardest pressures are architectural rather than local edits, especially dependency control (4.3%) and responsibility decomposition (15.2%). Moreover, 64/483 outcomes (13.3%) pass all functional tests yet fail the structural oracle. Under our harness, agent-mode configurations improve average performance from 28.2% to 45.0%, but do not eliminate these architectural failures. These results show that progress in code generation is not yet progress in maintainable code evolution, and that NITR exposes a critical failure surface missed by conventional evaluation.</p>
+<p><a href="https://arxiv.org/abs/2603.27745">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.27745.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.27745">下载Tex</a></p>
+<h2 id="crossing-the-nlpl-divide-information-flow-analysis-across-the-nlpl-boundary-in-llm-integrated-code">Crossing the NL/PL Divide: Information Flow Analysis Across the NL/PL Boundary in LLM-Integrated Code</h2>
+<h3 id="_7">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：9/10</li>
+<li>理由：论文直接讨论了与研究主题高度相关的核心技术。论文标题和摘要明确聚焦于LLM（大语言模型）与代码（PL）的集成，这直接对应研究主题中的'大语言模型如何辅助代码开发'。论文具体研究了LLM API调用、信息流分析、污点分析、程序切片等，这些都是软件系统智能化构建与优化中代码开发、测试调试环节的关键技术。术语如'LLM', 'information flow analysis', 'taint analysis', 'program slicing'与主题词高度匹配。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文的实验设置与研究主题场景适配性良好。实验基于9,083个来自4,154个真实世界Python文件的占位符-输出对，这为评估LLM在代码环境中的行为提供了现实基础。评估指标包括Cohen's κ（用于可靠性验证）、F1分数（用于下游应用效果评估）和切片大小减少百分比，这些是程序分析和机器学习领域公认的量化指标。实验验证了所提分类法在污点传播和程序切片两个下游任务中的有效性，这些任务直接关联代码测试、调试和优化。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文提出的方法（基于定量信息流理论的分类法及下游应用管道）可以直接应用于解决研究主题下的核心问题。该方法针对LLM集成代码中存在的'NL/PL边界'这一已知痛点，该边界会破坏传统的数据流分析（如污点分析、依赖分析），而这正是智能化代码开发、测试调试中需要克服的关键挑战。论文展示的污点传播管道和程序切片优化，为在LLM辅助的代码环境中进行更精确的分析和调试提供了直接方法，有助于系统自动化调优。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：3/10</li>
+<li>理由：论文摘要中未明确提及是否提供了开源代码、预训练模型或公开数据集。虽然论文描述了大规模的数据标注和验证工作（9,083对，4,154个文件），但未说明这些数据是否公开。对于快速跟进和应用该方法，代码和数据的可获得性信息缺失，因此无法给予高分。通常此类研究可能后续会公开，但基于当前提供的摘要信息，无法确认。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为82.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_8">摘要</h3>
+<p>LLM API calls are becoming a ubiquitous program construct, yet they create a boundary that no existing program analysis can cross: runtime values enter a natural-language prompt, undergo opaque processing inside the LLM, and re-emerge as code, SQL, JSON, or text that the program consumes. Every analysis that tracks data across function boundaries, including taint analysis, program slicing, dependency analysis, and change-impact analysis, relies on dataflow summaries of callee behavior. LLM calls have no such summaries, breaking all of these analyses at what we call the NL/PL boundary. We present the first information flow method to bridge this boundary. Grounded in quantitative information flow theory, our taxonomy defines 24 labels along two orthogonal dimensions: information preservation level (from lexically preserved to fully blocked) and output modality (natural language, structured format, executable artifact). We label 9,083 placeholder-output pairs from 4,154 real-world Python files and validate reliability with Cohen's $\kappa = 0.82$ and near-complete coverage (0.01\% unclassifiable). We demonstrate the taxonomy's utility on two downstream applications: (1)~a two-stage taint propagation pipeline combining taxonomy-based filtering with LLM verification achieves $F_1 = 0.923$ on 353 expert-annotated pairs, with cross-language validation on six real-world OpenClaw prompt injection cases further confirming effectiveness; (2)~taxonomy-informed backward slicing reduces slice size by a mean of 15\% in files containing non-propagating placeholders. Per-label analysis reveals that four blocked labels account for nearly all non-propagating cases, providing actionable filtering criteria for tool builders.</p>
+<p><a href="https://arxiv.org/abs/2603.28345">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.28345.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.28345">下载Tex</a></p>
+<h2 id="rtlseek-boosting-the-llm-based-rtl-generation-with-multi-stage-diversity-oriented-reinforcement-learning">RTLSeek: Boosting the LLM-Based RTL Generation with Multi-Stage Diversity-Oriented Reinforcement Learning</h2>
+<h3 id="_9">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：8/10</li>
+<li>理由：论文直接讨论了LLM、强化学习、RTL生成、Verilog等技术，与研究主题中的大语言模型辅助代码开发高度相关，但侧重于硬件设计（RTL），未涉及测试调试、形式化验证或通用软件系统优化。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：论文在RTLLM基准上进行实验，这是一个针对RTL生成的基准，评估了RTL正确性和多样性，验证了方法在硬件描述语言生成场景下的有效性，但实验设置更侧重于硬件设计而非广义的软件系统构建与优化。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文提出的基于LLM的RTL生成方法，通过多样性导向的强化学习提高代码质量和多样性，可直接应用于研究主题中的代码开发辅助和自动化调优，但主要针对硬件设计（RTL/Verilog），而非通用软件系统。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：10/10</li>
+<li>理由：论文明确提供了实现框架，包括数据集、源代码和模型权重，可通过提供的URL访问，这符合快速跟进和应用的要求。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为80.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_10">摘要</h3>
+<p>Register Transfer Level (RTL) design translates high-level specifications into hardware using HDLs such as Verilog. Although LLM-based RTL generation is promising, the scarcity of functionally verifiable high-quality data limits both accuracy and diversity. Existing post-training typically produces a single HDL implementation per specification, lacking awareness of RTL variations needed for different design goals. We propose RTLSeek, a post-training paradigm that applies rule-based Diversity-Oriented Reinforcement Learning to improve RTL correctness and diversity. Our Diversity-Centric Multi-Objective Reward Scheduling integrates expert knowledge with EDA feedback, and a three-stage framework maximizes the utility of limited data. Experiments on the RTLLM benchmark show that RTLSeek surpasses prior methods, with ablation results confirming that encouraging broader design-space exploration improves RTL quality and achieves the principle of "the more generated, the better results." Implementation framework, including the dataset, source code, and model weights, is shown at this https URL.</p>
+<p><a href="https://arxiv.org/abs/2603.27630">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.27630.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.27630">下载Tex</a></p>
+<h2 id="effiskill-agent-skill-based-automated-code-efficiency-optimization">EffiSkill: Agent Skill Based Automated Code Efficiency Optimization</h2>
+<h3 id="_11">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：9/10</li>
+<li>理由：论文直接讨论了“large language models (LLMs)”、“code efficiency optimization”、“agent skills”和“automated code optimization”，这些术语与主题中的“大语言模型”、“代码开发”、“系统自动化调优”和“智能化构建”高度匹配。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文在EffiBench-X数据集上评估了优化成功率，该指标直接衡量代码效率优化的有效性，与主题中“系统自动化调优”的核心目标高度适配。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：EffiSkill框架通过构建可重用的优化技能库（如Operator和Meta Skills），直接针对“自动化调优”中知识复用和泛化的痛点，其执行无关的诊断和规划方法可应用于大型系统的效率优化。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：0/10</li>
+<li>理由：论文摘要未明确提及代码、模型或数据集的公开情况，因此无法确认其可获得性。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为79.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_12">摘要</h3>
+<p>Code efficiency is a fundamental aspect of software quality, yet how to harness large language models (LLMs) to optimize programs remains challenging. Prior approaches have sought for one-shot rewriting, retrieved exemplars, or prompt-based search, but they do not explicitly distill reusable optimization knowledge, which limits generalization beyond individual instances. In this paper, we present EffiSkill, a framework for code-efficiency optimization that builds a portable optimization toolbox for LLM-based agents. The key idea is to model recurring slow-to-fast transformations as reusable agent skills that capture both concrete transformation mechanisms and higher-level optimization strategies. EffiSkill adopts a two-stage design: Stage I mines Operator and Meta Skills from large-scale slow/fast program pairs to build a skill library; Stage II applies this library to unseen programs through execution-free diagnosis, skill retrieval, plan composition, and candidate generation, without runtime feedback. Results on EffiBench-X show that EffiSkill achieves higher optimization success rates, improving over the strongest baseline by 3.69 to 12.52 percentage points across model and language settings. These findings suggest that mechanism-level skill reuse provides a useful foundation for execution-free code optimization, and that the resulting skill library can serve as a reusable resource for broader agent workflows.</p>
+<p><a href="https://arxiv.org/abs/2603.27850">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.27850.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.27850">下载Tex</a></p>
+<h2 id="codebase-memory-tree-sitter-based-knowledge-graphs-for-llm-code-exploration-via-mcp">Codebase-Memory: Tree-Sitter-Based Knowledge Graphs for LLM Code Exploration via MCP</h2>
+<h3 id="_13">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：8/10</li>
+<li>理由：论文直接讨论LLM编码代理、代码库探索、Tree-Sitter解析、知识图谱构建，这些与主题中的“大语言模型辅助代码开发”高度匹配，但未提及测试调试、形式化验证或系统自动化调优的具体技术。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：6/10</li>
+<li>理由：实验在31个真实代码库上进行，评估了代码探索效率（如token消耗、工具调用次数）和答案质量，这些指标与主题中“辅助代码开发”的场景相关，但未直接涉及测试调试、形式化验证或系统自动化调优的评估。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：论文提出的基于Tree-Sitter知识图谱的方法直接针对LLM代码探索中的结构理解不足和效率低下痛点，可应用于主题中的“辅助代码开发”环节，但未明确扩展到测试调试、形式化验证或系统自动化调优。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：10/10</li>
+<li>理由：论文明确说明Codebase-Memory是一个开源系统，这为快速跟进和应用提供了直接支持。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为76.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_14">摘要</h3>
+<p>Large Language Model (LLM) coding agents typically explore codebases through repeated file-reading and grep-searching, consuming thousands of tokens per query without structural understanding. We present Codebase-Memory, an open-source system that constructs a persistent, Tree-Sitter-based knowledge graph via the Model Context Protocol (MCP), parsing 66 languages through a multi-phase pipeline with parallel worker pools, call-graph traversal, impact analysis, and community discovery. Evaluated across 31 real-world repositories, Codebase-Memory achieves 83% answer quality versus 92% for a file-exploration agent, at ten times fewer tokens and 2.1 times fewer tool calls. For graph-native queries such as hub detection and caller ranking, it matches or exceeds the explorer on 19 of 31 languages.</p>
+<p><a href="https://arxiv.org/abs/2603.27277">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.27277.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.27277">下载Tex</a></p>
+<h2 id="kernel-smith-a-unified-recipe-for-evolutionary-kernel-optimization">Kernel-Smith: A Unified Recipe for Evolutionary Kernel Optimization</h2>
+<h3 id="_15">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：9/10</li>
+<li>理由：论文直接讨论了LLM（大语言模型）驱动的内核优化，使用了相关技术术语如“LLM-driven kernel optimization”、“reinforcement learning signals”、“evolutionary agent”。它提到了具体模型（如Gemini-3.0-pro, Claude-4.6-opus, DeepSeek-V3.2-think, Qwen3-235B-2507-think）和平台（NVIDIA GPUs, MetaX GPUs），这些与研究主题中的“大语言模型”和“系统自动化调优”高度匹配。但未涉及代码开发、测试调试或形式化验证的具体技术。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：论文的实验环境（NVIDIA GPUs/Triton, MetaX GPUs/MACA）、数据集（KernelBench）和评估指标（速度提升比、与前沿模型比较）是GPU内核优化领域的典型设置，验证了LLM驱动优化在异构平台上的有效性。这直接关联到研究主题中“系统自动化调优”的部分，但未覆盖代码开发、测试调试或形式化验证等其他方面。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文提出的Kernel-Smith框架（结合进化代理和训练方法）专注于GPU内核的自动化优化，这直接对应研究主题中的“系统自动化调优”部分。方法针对性能优化痛点，使用LLM作为进化循环中的局部改进器，可被应用于大型软件系统的调优。但未明确涉及代码开发、测试调试或形式化验证等其他核心问题。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：1/10</li>
+<li>理由：论文摘要未明确提及是否提供开源代码、预训练模型或公开数据集。虽然提到了对生产系统（如SGLang和LMDeploy）的上游贡献，但这并不等同于公开发布了代码或模型。因此，无法确认代码与数据的可获得性。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为76.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_16">摘要</h3>
+<p>We present Kernel-Smith, a framework for high-performance GPU kernel and operator generation that combines a stable evaluation-driven evolutionary agent with an evolution-oriented post-training recipe. On the agent side, Kernel-Smith maintains a population of executable candidates and iteratively improves them using an archive of top-performing and diverse programs together with structured execution feedback on compilation, correctness, and speedup. To make this search reliable, we build backend-specific evaluation services for Triton on NVIDIA GPUs and Maca on MetaX GPUs. On the training side, we convert long-horizon evolution trajectories into step-centric supervision and reinforcement learning signals by retaining correctness-preserving, high-gain revisions, so that the model is optimized as a strong local improver inside the evolutionary loop rather than as a one-shot generator. Under a unified evolutionary protocol, Kernel-Smith-235B-RL achieves state-of-the-art overall performance on KernelBench with Nvidia Triton backend, attaining the best average speedup ratio and outperforming frontier proprietary models including Gemini-3.0-pro and Claude-4.6-opus. We further validate the framework on the MetaX MACA backend, where our Kernel-Smith-MACA-30B surpasses large-scale counterparts such as DeepSeek-V3.2-think and Qwen3-235B-2507-think, highlighting potential for seamless adaptation across heterogeneous platforms. Beyond benchmark results, the same workflow produces upstream contributions to production systems including SGLang and LMDeploy, demonstrating that LLM-driven kernel optimization can transfer from controlled evaluation to practical deployment.</p>
+<p><a href="https://arxiv.org/abs/2603.28342">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.28342.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.28342">下载Tex</a></p>
+<h2 id="predicting-program-correctness-by-ensemble-semantic-entropy">Predicting Program Correctness By Ensemble Semantic Entropy</h2>
+<h3 id="_17">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：8/10</li>
+<li>理由：论文直接讨论了大型语言模型（LLMs）、程序生成、不确定性估计、语义一致性等术语，这些与研究主题中的“大语言模型辅助代码开发、测试调试、形式化验证”高度匹配。但未明确涉及系统自动化调优的具体技术。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文使用了LiveCodeBench数据集，这是一个用于评估代码生成模型性能的基准，与研究主题中的代码开发、测试调试场景高度相关。实验评估了程序正确性预测，直接针对主题中的验证挑战。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文提出的Ensemble Semantic Entropy (ESE)方法旨在通过不确定性估计来预测程序正确性，这直接针对研究主题中“确保代码正确性”的核心痛点，尤其是在缺乏外部验证的情况下。该方法可被应用于代码测试、验证和自动化调优环节。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：0/10</li>
+<li>理由：论文摘要未明确提及是否提供了开源代码、预训练模型或公开数据集，因此无法确认其可获得性。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为74.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_18">摘要</h3>
+<p>Large language models (LLMs) have demonstrated remarkable capabilities in generating programs from natural language descriptions, yet ensuring their correctness without an external oracle remains a critical challenge. To solve the challenge, existing methods often rely on uncertainty estimation, measuring the consistency of semantics or execution behaviors across multiple samples generated by a single model. However, we observe that a single model can often converge to a consistent but incorrect solution, rendering such consistency-based proxies ineffective. To address this, we propose Ensemble Semantic Entropy (ESE), which estimates uncertainty by evaluating the consistency of samples aggregated across an ensemble of models. Experiments on LiveCodeBench demonstrate that ESE correlates more strongly with program correctness than single-model semantic entropy. Notably, in selective generation tasks with strict false-positive rate constraints, ESE improves prediction accuracy by 53.4%. Furthermore, by leveraging ESE as the decision signal, we propose a cascading test-time scaling framework Cas, which maintains performance while reducing FLOPs by 64.9% compared to single-model scaling, offering a new perspective on balancing parameter and inference scaling.</p>
+<p><a href="https://arxiv.org/abs/2603.27098">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.27098.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.27098">下载Tex</a></p>
+<h2 id="compressing-code-context-for-llm-based-issue-resolution">Compressing Code Context for LLM-based Issue Resolution</h2>
+<h3 id="_19">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：7/10</li>
+<li>理由：论文直接讨论LLMs在解决GitHub问题（代码修复）中的应用，涉及'代码上下文压缩'、'bug-fixing'、'SWE-bench'数据集和'SWEzze'模型，这些技术术语与研究主题中的'代码开发、测试调试'高度匹配，但未深入涉及'形式化验证'或'系统自动化调优'。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文使用SWE-bench Verified数据集评估LLMs在解决真实GitHub问题上的性能，这是代码修复领域的标准基准；评估指标包括压缩率、token预算减少、问题解决率提升和延迟，这些直接衡量了在代码开发辅助场景下的有效性。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文提出的框架（Oracle-guided Code Distillation和SWEzze模型）直接针对LLM在代码修复中上下文过载和噪声干扰的痛点，通过压缩代码上下文来提升问题解决效率，这可以直接应用于研究主题中的'代码开发、测试调试'环节，优化LLM的辅助性能。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：5/10</li>
+<li>理由：论文未明确提及代码、模型或数据集的公开可用性，但提到了一个名为'SWEzze'的轻量级模型，这暗示了可能的技术实现，但缺乏明确的开放获取声明。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为74.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_20">摘要</h3>
+<p>Large Language Models (LLMs) are now capable of resolving real-world GitHub issues. However, current approaches overapproximate the code context and suffer from two compounding problems: the prohibitive cost of processing massive inputs, and low effectiveness as noise floods the context window and distracts the model from the bug-fixing signal. Existing compression techniques fail to resolve this tension: generic compressors compromise the semantic integrity of code, while code-specific tools lack awareness of code structure and task context to preserve essential patch ingredients. To address this, we propose a novel framework consisting of two components. First, Oracle-guided Code Distillation (OCD), a context distillation algorithm that combines genetic search and delta debugging to systematically reduce code contexts to their minimal sufficient subsequence - retaining only the ingredients required for a successful fix. We use this distilled data to fine-tune SWEzze, a lightweight model that learns to compress code context at inference time, filtering noise and combating distraction while preserving fix ingredients. Evaluated on SWE-bench Verified across three frontier LLMs, SWEzze maintains a stable compression rate of about 6 times across models, reduces the total token budget by 51.8%-71.3% relative to the uncompressed setting, improves issue resolution rates by 5.0%-9.2%, and delivers the best overall balance among effectiveness, compression ratio, and latency compared with state-of-the-art context compression baselines.</p>
+<p><a href="https://arxiv.org/abs/2603.28119">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.28119.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.28119">下载Tex</a></p>
+<h2 id="cirrusbench-evaluating-llm-based-agents-beyond-correctness-in-real-world-cloud-service-environments">CirrusBench: Evaluating LLM-based Agents Beyond Correctness in Real-World Cloud Service Environments</h2>
+<h3 id="_21">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：7/10</li>
+<li>理由：论文直接讨论LLM（大语言模型）和基于LLM的代理，涉及云服务环境、技术复杂性和长程依赖，与研究主题中的“大语言模型如何辅助代码开发、测试调试”部分重叠，但未明确提及代码开发、形式化验证或系统调优的具体技术。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：实验基于真实云服务工单数据，引入客户中心指标（如归一化效率指数和多轮延迟）来评估LLM代理在复杂技术环境中的效率，这直接适配于研究主题中“系统自动化调优”和“测试调试”的场景，但未直接涉及代码开发或形式化验证。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：6/10</li>
+<li>理由：论文提出的评估框架（CirrusBench）专注于LLM代理在真实云服务环境中的稳健性和效率评估，可间接应用于研究主题中的“测试调试”和“系统自动化调优”，但未直接提供代码开发、形式化验证或具体优化方法。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：10/10</li>
+<li>理由：论文明确提供了开源代码和评估框架（CirrusBench），通过GitHub链接发布，便于快速跟进和应用。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为71.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_22">摘要</h3>
+<p>The increasing agentic capabilities of Large Language Models (LLMs) have enabled their deployment in real-world applications, such as cloud services, where customer-assistant interactions exhibit high technical complexity and long-horizon dependencies, making robustness and resolution efficiency critical for customer satisfaction. However, existing benchmarks for LLM-based agents largely rely on synthetic environments that fail to capture the diversity and unpredictability of authentic customer inputs, often ignoring the resolution efficiency essential for real-world deployment. To bridge this gap, we introduce CirrusBench, a novel evaluation framework distinguished by its foundation in real-world data from authentic cloud service tickets. CirrusBench preserves the intricate multi-turn logical chains and realistic tool dependencies inherent to technical service environments. Moving beyond execution correctness, we introduce novel Customer-Centric metrics to define agent success, quantifying service quality through metrics such as the Normalized Efficiency Index and Multi-Turn Latency to explicitly measure resolution efficiency. Experiments utilizing our framework reveal that while state-of-the-art models demonstrate strong reasoning capabilities, they frequently struggle in complex, realistic multi-turn tasks and fail to meet the high-efficiency standards required for customer service, highlighting critical directions for the future development of LLM-based agents in practical technical service applications. CirrusBench evaluation framework is released at: this https URL</p>
+<p><a href="https://arxiv.org/abs/2603.28569">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.28569.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.28569">下载Tex</a></p>
+<h2 id="rsr-core-a-high-performance-engine-for-low-bit-matrix-vector-multiplication">RSR-core: A High-Performance Engine for Low-Bit Matrix-Vector Multiplication</h2>
+<h3 id="_23">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：6/10</li>
+<li>理由：论文摘要中直接提到了'large language models'、'inference'、'low-bit quantization'和'LLMs'，这些术语与研究主题中的'大语言模型'和'系统自动化调优'高度相关，但未深入讨论代码开发、测试调试或形式化验证等主题的其他方面。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：实验在CPU和CUDA环境中进行，评估加速性能，并使用流行的三元大语言模型（LLMs）进行推理基准测试，这直接验证了其在大型语言模型推理（主题的一部分）场景下的有效性。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：论文提出的RSR-core引擎旨在加速低比特矩阵向量乘法，这是大型语言模型推理中的关键计算瓶颈，因此该方法可以直接应用于主题中的'系统自动化调优'方面，特别是优化推理效率。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：10/10</li>
+<li>理由：论文明确提供了公开可用的源代码（'The source code is publicly available at this https URL'），这对于快速跟进和应用至关重要。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为70.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_24">摘要</h3>
+<p>Matrix-vector multiplication is a fundamental building block in neural networks, vector databases, and large language models, particularly during inference. As a result, efficient matrix-vector multiplication engines directly translate into more efficient inference. Recent work has explored low-bit quantization of model weights, where matrices are represented using binary (1-bit) or ternary (1.58-bit) values while activation is kept in higher precision. These representations enable efficient hardware-level computation. In parallel, algorithms such as Redundant Segment Reduction (RSR) provide theoretical guarantees for accelerating low-bit matrix-vector multiplication. However, existing implementations operate at the application level and cannot be efficiently integrated into hardware kernels, limiting practical performance. To bridge this gap, we present RSR-core, a high-performance engine that implements the RSR algorithm as optimized low-level kernels for both CPU and CUDA environments. RSR-core supports efficient matrix-vector multiplication for binary and ternary weight matrices and general vectors while enabling practical deployment of RSR algorithm in real inference pipelines. RSR-core is provided as a production-ready engine with HuggingFace integration for preprocessing low-bit models and running accelerated inference. Experimental results demonstrate significant performance improvements over baseline HuggingFace PyTorch multiplication, achieving up to 62x speedup on CPU and up to 1.9x speedup for token generation on CUDA for popular ternary LLMs. The source code is publicly available at this https URL.</p>
+<p><a href="https://arxiv.org/abs/2603.27462">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.27462.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.27462">下载Tex</a></p>
+<h2 id="_25">页面生成的统计项</h2>
+<p>本页面使用deepseek-chat模型生成，token用量统计如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">用量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">提示词缓存未命中tokens</td>
+<td style="text-align: left;">1471884</td>
+</tr>
+<tr>
+<td style="text-align: left;">提示词缓存命中tokens</td>
+<td style="text-align: left;">137472</td>
+</tr>
+<tr>
+<td style="text-align: left;">补全tokens</td>
+<td style="text-align: left;">660056</td>
+</tr>
+<tr>
+<td style="text-align: left;">思考链tokens</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">总计</td>
+<td style="text-align: left;">2269412</td>
+</tr>
+</tbody>
+</table>
+<p>页面生成的总用时为22m 55s</p>
+<p>&lt;&lt; <a href="./mkdocs/docs/LLM4SE/2026-03-30.md">昨天的论文总结</a></p>
+<p>&gt;&gt; <a href="./mkdocs/docs/LLM4SE/2026-04-01.md">明天的论文总结</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

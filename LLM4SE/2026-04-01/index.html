@@ -1,0 +1,1477 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Concurrent_reasoning/2026-04-01/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>LLM4SE - arXiv Sniffer Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2026-04-01" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="arXiv Sniffer Site" class="md-header__button md-logo" aria-label="arXiv Sniffer Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            arXiv Sniffer Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LLM4SE
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-grey" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../readme/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  说明
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Concurrent_reasoning/2026-04-01/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Concurrent reasoning
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  LLM4SE
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="arXiv Sniffer Site" class="md-nav__button md-logo" aria-label="arXiv Sniffer Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    arXiv Sniffer Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Concurrent_reasoning/2026-04-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrent reasoning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM4SE
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM4SE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#benchmarking-phd-level-coding-in-3d-geometric-computer-vision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benchmarking PhD-Level Coding in 3D Geometric Computer Vision
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Benchmarking PhD-Level Coding in 3D Geometric Computer Vision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#designing-fsms-specifications-from-requirements-with-gpt-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Designing FSMs Specifications from Requirements with GPT 4.0
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Designing FSMs Specifications from Requirements with GPT 4.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enhancing-llm-based-bug-reproduction-for-android-apps-via-pre-assessment-of-visual-effects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enhancing LLM-Based Bug Reproduction for Android Apps via Pre-Assessment of Visual Effects
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enhancing LLM-Based Bug Reproduction for Android Apps via Pre-Assessment of Visual Effects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-vulnerability-detection-using-a-lightweight-graph-neural-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software Vulnerability Detection Using a Lightweight Graph Neural Network
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Software Vulnerability Detection Using a Lightweight Graph Neural Network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#think-anywhere-in-code-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Think Anywhere in Code Generation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Think Anywhere in Code Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-improving-code-generation-via-semantic-entropy-and-behavioral-consensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-Improving Code Generation via Semantic Entropy and Behavioral Consensus
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Self-Improving Code Generation via Semantic Entropy and Behavioral Consensus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-like-humans-for-llms-rethinking-logging-via-execution-and-runtime-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging Like Humans for LLMs: Rethinking Logging via Execution and Runtime Feedback
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logging Like Humans for LLMs: Rethinking Logging via Execution and Runtime Feedback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        页面生成的统计项
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#benchmarking-phd-level-coding-in-3d-geometric-computer-vision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benchmarking PhD-Level Coding in 3D Geometric Computer Vision
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Benchmarking PhD-Level Coding in 3D Geometric Computer Vision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#designing-fsms-specifications-from-requirements-with-gpt-40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Designing FSMs Specifications from Requirements with GPT 4.0
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Designing FSMs Specifications from Requirements with GPT 4.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enhancing-llm-based-bug-reproduction-for-android-apps-via-pre-assessment-of-visual-effects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enhancing LLM-Based Bug Reproduction for Android Apps via Pre-Assessment of Visual Effects
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enhancing LLM-Based Bug Reproduction for Android Apps via Pre-Assessment of Visual Effects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-vulnerability-detection-using-a-lightweight-graph-neural-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software Vulnerability Detection Using a Lightweight Graph Neural Network
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Software Vulnerability Detection Using a Lightweight Graph Neural Network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#think-anywhere-in-code-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Think Anywhere in Code Generation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Think Anywhere in Code Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-improving-code-generation-via-semantic-entropy-and-behavioral-consensus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Self-Improving Code Generation via Semantic Entropy and Behavioral Consensus
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Self-Improving Code Generation via Semantic Entropy and Behavioral Consensus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-like-humans-for-llms-rethinking-logging-via-execution-and-runtime-feedback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging Like Humans for LLMs: Rethinking Logging via Execution and Runtime Feedback
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logging Like Humans for LLMs: Rethinking Logging via Execution and Runtime Feedback">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        页面生成的统计项
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="2026-04-01">2026-04-01论文总结</h1>
+<p><strong>主题</strong>: 面向大型软件系统的智能化构建与优化：研究大语言模型如何辅助代码开发、测试调试、形式化验证，并探索其在系统自动化调优方面的核心方法与关键技术。</p>
+<p>在这个主题下筛选得到了<strong>7篇</strong>论文。</p>
+<h2 id="benchmarking-phd-level-coding-in-3d-geometric-computer-vision">Benchmarking PhD-Level Coding in 3D Geometric Computer Vision</h2>
+<h3 id="_1">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：8/10</li>
+<li>理由：论文直接讨论了AI辅助编码（AI-assisted coding）、大语言模型（如GPT-5）、代码生成、基准测试（GeoCodeBench）和3D几何计算机视觉，这些术语与研究主题中的“大语言模型如何辅助代码开发”高度匹配。但论文专注于3D几何视觉这一特定领域，而非更广泛的“大型软件系统”或“系统自动化调优”，核心技术讨论有部分重叠但非完全一致。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文的实验设置围绕评估大语言模型（如GPT-5）在复杂3D几何计算机视觉编码任务上的性能，使用了专门设计的PhD级基准测试GeoCodeBench，包含分层任务和自动单元测试。这直接关联研究主题中“大语言模型如何辅助代码开发”和“测试调试”部分，实验环境（AI模型评估）和评估指标（通过率）适合该主题场景，验证了模型在特定领域代码生成的有效性。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：6/10</li>
+<li>理由：论文的核心方法是构建一个基准测试（GeoCodeBench）来评估大语言模型在3D几何视觉编码中的能力，包括任务设计、测试生成和模型评估。这间接关联研究主题，因为它提供了评估工具和方法，可用于衡量大语言模型在辅助代码开发（尤其是复杂科学计算）方面的进展，但论文本身未直接提出优化或构建系统的方法，更多是评估和基准测试。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：7/10</li>
+<li>理由：论文明确介绍了GeoCodeBench基准测试，通常这类基准测试会公开发布数据集和评估框架以促进研究。摘要中提到了“fully automatic, reproducible scoring”，暗示了可复现性，但未明确说明代码或数据集是否开源。需要查阅论文全文确认，但基于摘要信息，存在较高可能性。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为77.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_2">摘要</h3>
+<p>AI-assisted coding has rapidly reshaped software practice and research workflows, yet today's models still struggle to produce correct code for complex 3D geometric vision. If models could reliably write such code, the research of our community would change substantially. To measure progress toward that goal, we introduce GeoCodeBench, a PhD-level benchmark that evaluates coding for 3D vision. Each problem is a fill-in-the-function implementation task curated from representative papers at recent venues: we first let a tool propose candidate functions from official repositories, then perform careful human screening to select core 3D geometric components. For every target, we generate diverse, edge-case unit tests, enabling fully automatic, reproducible scoring. We evaluate eight representative open- and closed-source models to reflect the current ecosystem. The best model, GPT-5, attains only 36.6% pass rate, revealing a large gap between current capabilities and dependable 3D scientific coding. GeoCodeBench organizes tasks into a two-level hierarchy: General 3D capability (geometric transformations and mechanics/optics formulation) and Research capability (novel algorithm implementation and geometric logic routing). Scores are positively correlated across these axes, but research-oriented tasks are markedly harder. Context ablations further show that "more paper text" is not always better: cutting off at the Method section statistically outperforms full-paper inputs, highlighting unresolved challenges in long-context scientific comprehension. Together, these findings position GeoCodeBench as a rigorous testbed for advancing from generic coding to trustworthy 3D geometric vision coding.</p>
+<p><a href="https://arxiv.org/abs/2603.30038">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.30038.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.30038">下载Tex</a></p>
+<h2 id="designing-fsms-specifications-from-requirements-with-gpt-40">Designing FSMs Specifications from Requirements with GPT 4.0</h2>
+<h3 id="_3">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：9/10</li>
+<li>理由：论文直接讨论了LLM（大语言模型）在形式化验证（FSM作为可执行的形式化规约）和测试自动化中的应用，与研究主题中的'大语言模型辅助代码开发、测试调试、形式化验证'高度相关。论文还提到了模型驱动的系统工程（MDE），这与'大型软件系统'的构建背景相符。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：6/10</li>
+<li>理由：论文进行了实验分析和评估，但使用了模拟数据，而非真实世界的大型软件系统数据集或公认的基准。实验验证了LLM在FSM设计和修复任务中的能力，但未明确说明是否采用了该主题下（如代码开发、系统调优）的标准评估指标。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文提出的基于LLM的FSM设计框架以及基于突变和测试生成的修复方法，可以直接应用于研究主题中的'形式化验证'和'测试调试'环节。该方法针对FSM质量低导致测试缺陷残留的痛点，但未直接涉及代码开发或系统自动化调优的核心方法。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：3/10</li>
+<li>理由：摘要中未提及是否提供了开源代码、预训练模型或公开数据集。论文仅描述了框架和方法，没有明确说明其可获得性，这可能会影响快速跟进和应用。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为76.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_4">摘要</h3>
+<p>Finite state machines (FSM) are executable formal specifications of reactive systems. These machines are designed based on systems' requirements. The requirements are often recorded in textual documents written in natural languages. FSMs play a crucial role in different phases of the model-driven system engineering (MDE). For example, they serve to automate testing activities. FSM quality is critical: the lower the quality of FSM, the higher the number of faults surviving the testing phase and the higher the risk of failure of the systems in production, which could lead to catastrophic scenarios. Therefore, this paper leverages recent advances in the domain of LLM to propose an LLM-based framework for designing FSMs from requirements. The framework also suggests an expert-centric approach based on FSM mutation and test generation for repairing the FSMs produced by LLMs. This paper also provides an experimental analysis and evaluation of LLM's capacities in performing the tasks presented in the framework and FSM repair via various methods. The paper presents experimental results with simulated data. These results and methods bring a new analysis and vision of LLMs that are useful for further development of machine learning technology and its applications to MDE.</p>
+<p><a href="https://arxiv.org/abs/2603.29140">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.29140.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.29140">下载Tex</a></p>
+<h2 id="enhancing-llm-based-bug-reproduction-for-android-apps-via-pre-assessment-of-visual-effects">Enhancing LLM-Based Bug Reproduction for Android Apps via Pre-Assessment of Visual Effects</h2>
+<h3 id="_5">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：7/10</li>
+<li>理由：论文直接讨论了LLM（特别是GPT-4.1）在软件测试中的应用，涉及bug复现、UI操作规划等核心概念，与技术主题中的“大语言模型辅助代码开发、测试调试”高度相关。但论文聚焦于Android移动应用和视觉效果，未广泛涉及形式化验证、系统自动化调优等其他主题方面。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：论文的实验针对Android应用，使用了包含75个bug报告的基准数据集，并评估了bug复现成功率、时间和成本。这些指标直接验证了其在“测试调试”这一主题场景下的有效性，但实验范围限定于移动应用，未覆盖更广泛的软件系统。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文提出的LTGDroid方法旨在利用LLM（GPT-4.1）通过视觉线索引导UI操作，以自动化复现Android应用中的bug。这直接针对“大语言模型辅助代码开发、测试调试”中的测试调试环节，解决了现有LLM方法在理解和预测UI视觉效果上的痛点，方法可被应用于该主题下的自动化测试问题。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：10/10</li>
+<li>理由：论文明确提供了LTGDroid的实现，并给出了公开可访问的URL链接，这对于快速跟进、复现和应用该方法至关重要。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为75.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_6">摘要</h3>
+<p>In the development and maintenance of Android apps, the quick and accurate reproduction of user-reported bugs is crucial to ensure application quality and improve user satisfaction. However, this process is often time-consuming and complex. Therefore, there is a need for an automated approach that can explore the Application Under Test (AUT) and identify the correct sequence of User Interface (UI) actions required to reproduce a bug, given only a complete bug report. Large Language Models (LLMs) have shown remarkable capabilities in understanding textual and visual semantics, making them a promising tool for planning UI actions. Nevertheless, our study shows that even when using state-of-the-art LLM-based approaches, these methods still struggle to follow detailed bug reproduction instructions and replan based on new information, due to their inability to accurately predict and interpret the visual effects of UI components. To address these limitations, we propose LTGDroid. Our insight is to execute all possible UI actions on the current UI page during exploration, record their corresponding visual effects, and leverage these visual cues to guide the LLM in selecting UI actions that are likely to reproduce the bug. We evaluated LTGDroid, instantiated with GPT-4.1, on a benchmark consisting of 75 bug reports from 45 popular Android apps. The results show that LTGDroid achieves a reproduction success rate of 87.51%, improving over the state-of-the-art baselines by 49.16% and 556.30%, while requiring an average of 20.45 minutes and approximately $0.27 to successfully reproduce a bug. The LTGDroid implementation is publicly available at this https URL.</p>
+<p><a href="https://arxiv.org/abs/2603.29623">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.29623.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.29623">下载Tex</a></p>
+<h2 id="software-vulnerability-detection-using-a-lightweight-graph-neural-network">Software Vulnerability Detection Using a Lightweight Graph Neural Network</h2>
+<h3 id="_7">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：9/10</li>
+<li>理由：论文直接提及了“Large Language Models (LLMs)”、“vulnerability detection”、“graph neural network (GNN)”、“software development pipelines”等与研究主题高度相关的技术术语，并讨论了LLMs在漏洞检测中的应用与局限性，与主题的核心技术（大语言模型辅助代码开发、测试调试）有直接语义匹配。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：6/10</li>
+<li>理由：论文描述了在多个代码数据集上进行泛化性测试，并进行了消融研究，这符合软件漏洞检测领域的常见实验设置，但未明确说明是否使用了该主题下（如LLM辅助代码开发）的公认标准数据集或评估指标。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文提出的基于图神经网络的轻量级漏洞检测方法VulGNN，旨在替代计算密集型的大语言模型（LLMs），直接针对软件漏洞检测这一核心问题，并解决了LLMs在可扩展性、重训练和定制化方面的痛点，与主题中“辅助代码开发、测试调试”的部分高度相关。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：1/10</li>
+<li>理由：摘要未明确提及开源代码、预训练模型或公开数据集的可获得性，仅描述了方法的轻量级和可部署性，因此无法确认代码与数据的可获得性。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为74.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_8">摘要</h3>
+<p>Large Language Models (LLMs) have emerged as a popular choice in vulnerability detection studies given their foundational capabilities, open source availability, and variety of models, but have limited scalability due to extensive compute requirements. Using the natural graph relational structure of code, we show that our proposed graph neural network (GNN) based deep learning model VulGNN for vulnerability detection can achieve performance almost on par with LLMs, but is 100 times smaller in size and fast to retrain and customize. We describe the VulGNN architecture, ablation studies on components, learning rates, and generalizability to different code datasets. As a lightweight model for vulnerability analysis, VulGNN is efficient and deployable at the edge as part of real-world software development pipelines.</p>
+<p><a href="https://arxiv.org/abs/2603.29216">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.29216.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.29216">下载Tex</a></p>
+<h2 id="think-anywhere-in-code-generation">Think Anywhere in Code Generation</h2>
+<h3 id="_9">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：7/10</li>
+<li>理由：论文直接讨论了大型语言模型（LLMs）、代码生成、推理机制、强化学习奖励等术语，与研究主题中的'大语言模型'、'代码开发'高度匹配，但未明确涉及测试调试、形式化验证或系统自动化调优。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文在四个主流代码生成基准（LeetCode、LiveCodeBench、HumanEval、MBPP）上进行了实验，这些是代码生成领域的标准数据集，评估了模型性能，验证了方法在代码生成场景下的有效性。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文提出的Think-Anywhere方法针对代码生成中前期思考不足、无法自适应分配推理努力的问题，通过按需推理机制直接辅助代码开发过程，解决了主题中'大语言模型如何辅助代码开发'的核心痛点。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：5/10</li>
+<li>理由：论文未明确提及是否提供开源代码、预训练模型或公开数据集，摘要中仅描述了方法框架和实验结果，缺乏代码可用性声明。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为74.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_10">摘要</h3>
+<p>Recent advances in reasoning Large Language Models (LLMs) have primarily relied on upfront thinking, where reasoning occurs before final answer. However, this approach suffers from critical limitations in code generation, where upfront thinking is often insufficient as problems' full complexity only reveals itself during code implementation. Moreover, it cannot adaptively allocate reasoning effort throughout the code generation process where difficulty varies significantly. In this paper, we propose Think-Anywhere, a novel reasoning mechanism that enables LLMs to invoke thinking on-demand at any token position during code generation. We achieve Think-Anywhere by first teaching LLMs to imitate the reasoning patterns through cold-start training, then leveraging outcome-based RL rewards to drive the model's autonomous exploration of when and where to invoke reasoning. Extensive experiments on four mainstream code generation benchmarks (i.e., LeetCode, LiveCodeBench, HumanEval, and MBPP) show that Think-Anywhere achieves state-of-the-art performance over both existing reasoning methods and recent post-training approaches, while demonstrating consistent generalization across diverse LLMs. Our analysis further reveals that Think-Anywhere enables the model to adaptively invoke reasoning at high-entropy positions, providing enhanced interpretability.</p>
+<p><a href="https://arxiv.org/abs/2603.29957">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.29957.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.29957">下载Tex</a></p>
+<h2 id="self-improving-code-generation-via-semantic-entropy-and-behavioral-consensus">Self-Improving Code Generation via Semantic Entropy and Behavioral Consensus</h2>
+<h3 id="_11">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：7/10</li>
+<li>理由：论文直接讨论了大语言模型（LLMs）、代码生成、语义熵、直接偏好优化（DPO）等技术，与研究主题中的“大语言模型如何辅助代码开发”高度匹配。但未涉及测试调试、形式化验证或系统自动化调优等主题其他方面。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文在代码生成基准测试和骨干大语言模型上进行实验，验证了方法在无外部监督下提升代码生成的有效性。这直接关联研究主题中的“大语言模型辅助代码开发”部分，实验设置适配该主题场景。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文提出的ConSelf方法，包括代码语义熵和共识驱动的直接偏好优化，旨在通过自改进提升大语言模型的代码生成能力，无需外部监督。这直接针对研究主题中“大语言模型辅助代码开发”的痛点，如减少对昂贵外部资源的依赖，方法可应用于代码生成优化。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：3/10</li>
+<li>理由：论文未明确提及是否提供开源代码、预训练模型或公开数据集。摘要仅描述了方法ConSelf和实验效果，未说明代码或数据的可获得性，这会影响快速跟进和应用。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为72.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_12">摘要</h3>
+<p>Improving the code generation capabilities of large language models (LLMs) typically relies on supervised fine-tuning or preference optimization, both of which require costly external resources such as powerful teacher models or reliable test units. However, in real-world scenarios, it is much harder to obtain reference solutions and test oracles than problem descriptions and test inputs. In this paper, we tackle a challenging yet realistic question: Can a code language model improve itself without access to a superior teacher and a test oracle? To answer this, we propose ConSelf, a self-improving approach built upon two key ideas. First, we introduce code semantic entropy, a novel metric that measures problem-level uncertainty by assessing the functional diversity of program behaviors, enabling a curriculum construction with the most learnable problems. Second, we present consensus-driven direct preference optimization (Con-DPO), a preference-based fine-tuning method that weights each preference pair by its behavioral consensus, thereby mitigating the impact of noisy self-generated supervision. Experiments on various benchmarks and backbone LLMs demonstrate that ConSelf significantly outperforms baselines, validating the effectiveness of semantic entropy-based curriculum construction and consensus-driven optimization in improving code generation without external supervision.</p>
+<p><a href="https://arxiv.org/abs/2603.29292">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.29292.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.29292">下载Tex</a></p>
+<h2 id="logging-like-humans-for-llms-rethinking-logging-via-execution-and-runtime-feedback">Logging Like Humans for LLMs: Rethinking Logging via Execution and Runtime Feedback</h2>
+<h3 id="_13">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：7/10</li>
+<li>理由：论文直接讨论了LLM（大语言模型）、软件调试、日志生成、缺陷定位与修复等核心技术，与主题中的“大语言模型辅助代码开发、测试调试”高度匹配；但未涉及形式化验证或系统自动化调优等其他主题方面。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文使用Defects4J基准进行调试任务评估，这是软件缺陷定位与修复领域的标准数据集；实验指标（F1分数、修复缺陷数量）直接衡量日志对下游调试任务（如缺陷定位与修复）的效用，验证了方法在LLM辅助调试场景下的有效性。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文提出的ReLog框架利用LLM生成、执行和迭代优化日志语句，直接针对软件调试中的日志生成痛点（静态方法忽略运行时行为、评估标准不实用），可应用于研究主题中的“LLM辅助代码开发、测试调试”环节，特别是自动化调试优化。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：2/10</li>
+<li>理由：论文未明确声明提供开源代码或预训练模型，摘要中仅描述了方法框架和实验结果，没有提及代码或数据的公开获取方式。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为71.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_14">摘要</h3>
+<p>Logging statements are essential for software debugging and maintenance. However, existing approaches to automatic logging generation rely on static analysis and produce statements in a single pass without considering runtime behavior. They are also typically evaluated by similarity to developer-written logs, assuming these logs form an adequate gold standard. This assumption is increasingly limiting in the LLM era, where logs are consumed not only by developers but also by LLMs for downstream tasks. As a result, optimizing logs for human similarity does not necessarily reflect their practical utility. To address these limitations, we introduce ReLog, an iterative logging generation framework guided by runtime feedback. ReLog leverages LLMs to generate, execute, evaluate, and refine logging statements so that runtime logs better support downstream tasks. Instead of comparing against developer-written logs, we evaluate ReLog through downstream debugging tasks, including defect localization and repair. We construct a benchmark based on Defects4J under both direct and indirect debugging settings. Results show that ReLog consistently outperforms all baselines, achieving an F1 score of 0.520 and repairing 97 defects in the direct setting, and the best F1 score of 0.408 in the indirect setting where source code is unavailable. Additional experiments across multiple LLMs demonstrate the generality of the framework, while ablations confirm the importance of iterative refinement and compilation repair. Overall, our work reframes logging as a runtime-guided, task-oriented process and advocates evaluating logs by their downstream utility rather than textual similarity.</p>
+<p><a href="https://arxiv.org/abs/2603.29122">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2603.29122.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2603.29122">下载Tex</a></p>
+<h2 id="_15">页面生成的统计项</h2>
+<p>本页面使用deepseek-chat模型生成，token用量统计如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">用量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">提示词缓存未命中tokens</td>
+<td style="text-align: left;">793676</td>
+</tr>
+<tr>
+<td style="text-align: left;">提示词缓存命中tokens</td>
+<td style="text-align: left;">74048</td>
+</tr>
+<tr>
+<td style="text-align: left;">补全tokens</td>
+<td style="text-align: left;">358685</td>
+</tr>
+<tr>
+<td style="text-align: left;">思考链tokens</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">总计</td>
+<td style="text-align: left;">1226409</td>
+</tr>
+</tbody>
+</table>
+<p>页面生成的总用时为12m 20s</p>
+<p>&lt;&lt; <a href="./mkdocs/docs/LLM4SE/2026-03-31.md">昨天的论文总结</a></p>
+<p>&gt;&gt; <a href="./mkdocs/docs/LLM4SE/2026-04-02.md">明天的论文总结</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

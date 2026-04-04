@@ -1,0 +1,2117 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Concurrent_reasoning/2026-04-03/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>LLM4SE - arXiv Sniffer Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2026-04-03" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="arXiv Sniffer Site" class="md-header__button md-logo" aria-label="arXiv Sniffer Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            arXiv Sniffer Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LLM4SE
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-grey" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../readme/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  说明
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Concurrent_reasoning/2026-04-03/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Concurrent reasoning
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  LLM4SE
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="arXiv Sniffer Site" class="md-nav__button md-logo" aria-label="arXiv Sniffer Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    arXiv Sniffer Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Concurrent_reasoning/2026-04-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrent reasoning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM4SE
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM4SE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cutegen-an-llm-based-agentic-framework-for-generation-and-optimization-of-high-performance-gpu-kernels-using-cute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CuTeGen: An LLM-Based Agentic Framework for Generation and Optimization of High-Performance GPU Kernels using CuTe
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CuTeGen: An LLM-Based Agentic Framework for Generation and Optimization of High-Performance GPU Kernels using CuTe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-swe-zero-to-swe-hero-execution-free-to-execution-based-fine-tuning-for-software-engineering-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From SWE-ZERO to SWE-HERO: Execution-free to Execution-based Fine-tuning for Software Engineering Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="From SWE-ZERO to SWE-HERO: Execution-free to Execution-based Fine-tuning for Software Engineering Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-large-language-models-model-programs-formally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can Large Language Models Model Programs Formally?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Can Large Language Models Model Programs Formally?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testdecision-sequential-test-suite-generation-via-greedy-optimization-and-reinforcement-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TestDecision: Sequential Test Suite Generation via Greedy Optimization and Reinforcement Learning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TestDecision: Sequential Test Suite Generation via Greedy Optimization and Reinforcement Learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-guessing-to-placeholding-a-cost-theoretic-framework-for-uncertainty-aware-code-completion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Guessing to Placeholding: A Cost-Theoretic Framework for Uncertainty-Aware Code Completion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="From Guessing to Placeholding: A Cost-Theoretic Framework for Uncertainty-Aware Code Completion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brief-is-better-non-monotonic-chain-of-thought-budget-effects-in-function-calling-language-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brief Is Better: Non-Monotonic Chain-of-Thought Budget Effects in Function-Calling Language Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Brief Is Better: Non-Monotonic Chain-of-Thought Budget Effects in Function-Calling Language Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-functional-testing-for-malleable-mobile-application-driven-from-user-intent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Functional Testing for Malleable Mobile Application Driven from User Intent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automated Functional Testing for Malleable Mobile Application Driven from User Intent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semantic-evolution-over-populations-for-llm-guided-automated-program-repair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantic Evolution over Populations for LLM-Guided Automated Program Repair
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semantic Evolution over Populations for LLM-Guided Automated Program Repair">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-reward-hacking-rebounds-understanding-and-mitigating-it-with-representation-level-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Reward Hacking Rebounds: Understanding and Mitigating It with Representation-Level Signals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="When Reward Hacking Rebounds: Understanding and Mitigating It with Representation-Level Signals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assertain-automated-security-assertion-generation-using-large-language-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assertain: Automated Security Assertion Generation Using Large Language Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Assertain: Automated Security Assertion Generation Using Large Language Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prodcodebench-a-production-derived-benchmark-for-evaluating-ai-coding-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ProdCodeBench: A Production-Derived Benchmark for Evaluating AI Coding Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ProdCodeBench: A Production-Derived Benchmark for Evaluating AI Coding Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contextualizing-sink-knowledge-for-java-vulnerability-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contextualizing Sink Knowledge for Java Vulnerability Discovery
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Contextualizing Sink Knowledge for Java Vulnerability Discovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        页面生成的统计项
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cutegen-an-llm-based-agentic-framework-for-generation-and-optimization-of-high-performance-gpu-kernels-using-cute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CuTeGen: An LLM-Based Agentic Framework for Generation and Optimization of High-Performance GPU Kernels using CuTe
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CuTeGen: An LLM-Based Agentic Framework for Generation and Optimization of High-Performance GPU Kernels using CuTe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-swe-zero-to-swe-hero-execution-free-to-execution-based-fine-tuning-for-software-engineering-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From SWE-ZERO to SWE-HERO: Execution-free to Execution-based Fine-tuning for Software Engineering Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="From SWE-ZERO to SWE-HERO: Execution-free to Execution-based Fine-tuning for Software Engineering Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#can-large-language-models-model-programs-formally" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Can Large Language Models Model Programs Formally?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Can Large Language Models Model Programs Formally?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testdecision-sequential-test-suite-generation-via-greedy-optimization-and-reinforcement-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TestDecision: Sequential Test Suite Generation via Greedy Optimization and Reinforcement Learning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TestDecision: Sequential Test Suite Generation via Greedy Optimization and Reinforcement Learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-guessing-to-placeholding-a-cost-theoretic-framework-for-uncertainty-aware-code-completion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From Guessing to Placeholding: A Cost-Theoretic Framework for Uncertainty-Aware Code Completion
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="From Guessing to Placeholding: A Cost-Theoretic Framework for Uncertainty-Aware Code Completion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brief-is-better-non-monotonic-chain-of-thought-budget-effects-in-function-calling-language-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brief Is Better: Non-Monotonic Chain-of-Thought Budget Effects in Function-Calling Language Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Brief Is Better: Non-Monotonic Chain-of-Thought Budget Effects in Function-Calling Language Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-functional-testing-for-malleable-mobile-application-driven-from-user-intent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Functional Testing for Malleable Mobile Application Driven from User Intent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automated Functional Testing for Malleable Mobile Application Driven from User Intent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#semantic-evolution-over-populations-for-llm-guided-automated-program-repair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semantic Evolution over Populations for LLM-Guided Automated Program Repair
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semantic Evolution over Populations for LLM-Guided Automated Program Repair">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-reward-hacking-rebounds-understanding-and-mitigating-it-with-representation-level-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Reward Hacking Rebounds: Understanding and Mitigating It with Representation-Level Signals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="When Reward Hacking Rebounds: Understanding and Mitigating It with Representation-Level Signals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assertain-automated-security-assertion-generation-using-large-language-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assertain: Automated Security Assertion Generation Using Large Language Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Assertain: Automated Security Assertion Generation Using Large Language Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prodcodebench-a-production-derived-benchmark-for-evaluating-ai-coding-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ProdCodeBench: A Production-Derived Benchmark for Evaluating AI Coding Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ProdCodeBench: A Production-Derived Benchmark for Evaluating AI Coding Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contextualizing-sink-knowledge-for-java-vulnerability-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contextualizing Sink Knowledge for Java Vulnerability Discovery
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Contextualizing Sink Knowledge for Java Vulnerability Discovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        页面生成的统计项
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="2026-04-03">2026-04-03论文总结</h1>
+<p><strong>主题</strong>: 面向大型软件系统的智能化构建与优化：研究大语言模型如何辅助代码开发、测试调试、形式化验证，并探索其在系统自动化调优方面的核心方法与关键技术。</p>
+<p>在这个主题下筛选得到了<strong>12篇</strong>论文。</p>
+<h2 id="cutegen-an-llm-based-agentic-framework-for-generation-and-optimization-of-high-performance-gpu-kernels-using-cute">CuTeGen: An LLM-Based Agentic Framework for Generation and Optimization of High-Performance GPU Kernels using CuTe</h2>
+<h3 id="_1">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：10/10</li>
+<li>理由：论文中使用的技术术语与研究主题高度重合。论文直接讨论了大语言模型（LLMs）、GPU内核、代码生成、自动化优化、执行验证、结构化调试、性能分析等，这些均与研究主题中的“大语言模型”、“代码开发”、“测试调试”、“系统自动化调优”等核心概念紧密匹配。论文专注于使用LLMs自动化生成和优化高性能GPU代码，是研究主题的一个具体应用实例。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文的实验设置与研究主题高度适配。摘要明确指出实验在矩阵乘法和激活函数等典型GPU计算负载上进行，这些是评估GPU内核性能的公认标准场景。实验验证了框架在生成正确且高性能GPU内核方面的有效性，直接对应研究主题中“系统自动化调优”和“代码开发”的场景。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：10/10</li>
+<li>理由：论文提出的方法（CuTeGen框架）与研究主题直接相关。该方法将GPU内核开发视为结构化的生成-测试-优化工作流，使用大语言模型（LLMs）进行自动生成和迭代优化，并整合执行验证、结构化调试和性能分析反馈。这直接针对研究主题中“大语言模型辅助代码开发、测试调试”和“系统自动化调优”的核心问题与痛点，如自动化生成正确且高性能的代码。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：0/10</li>
+<li>理由：论文摘要未明确说明是否提供开源代码、预训练模型或公开数据集。摘要中提到了实验和框架，但未提及代码或数据的可获得性，因此无法从摘要中确认其可获得性。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为88.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_2">摘要</h3>
+<p>High-performance GPU kernels are critical to modern machine learning systems, yet developing efficient implementations remains a challenging, expert-driven process due to the tight coupling between algorithmic structure, memory hierarchy usage, and hardware-specific optimizations. Recent work has explored using large language models (LLMs) to generate GPU kernels automatically, but generated implementations often struggle to maintain correctness and achieve competitive performance across iterative refinements. We present CuTeGen, an agentic framework for automated generation and optimization of GPU kernels that treats kernel development as a structured generate--test--refine workflow. Unlike approaches that rely on one-shot generation or large-scale search over candidate implementations, CuTeGen focuses on progressive refinement of a single evolving kernel through execution-based validation, structured debugging, and staged optimization. A key design choice is to generate kernels using the CuTe abstraction layer, which exposes performance-critical structures such as tiling and data movement while providing a more stable representation for iterative modification. To guide performance improvement, CuTeGen incorporates workload-aware optimization prompts and delayed integration of profiling feedback. Experimental results on matrix multiplication and activation workloads demonstrate that the framework produces functionally correct kernels and achieves competitive performance relative to optimized library implementations.</p>
+<p><a href="https://arxiv.org/abs/2604.01489">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.01489.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.01489">下载Tex</a></p>
+<h2 id="from-swe-zero-to-swe-hero-execution-free-to-execution-based-fine-tuning-for-software-engineering-agents">From SWE-ZERO to SWE-HERO: Execution-free to Execution-based Fine-tuning for Software Engineering Agents</h2>
+<h3 id="_3">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：8/10</li>
+<li>理由：论文直接涉及大语言模型（如Qwen3-Coder-480B）、软件工程代理、代码语义、仓库级推理、执行验证等术语，与研究主题中的“大语言模型辅助代码开发、测试调试”高度重合，但未明确讨论形式化验证或系统自动化调优。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：10/10</li>
+<li>理由：论文使用SWE-bench（包括Verified和Multilingual版本）作为评估基准，这是软件工程代理领域公认的标准测试集，直接验证了方法在代码修复、多语言泛化等核心任务上的有效性，与研究主题高度适配。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文提出的两阶段微调方法（SWE-ZERO用于代码语义理解，SWE-HERO用于工程化工作流）直接针对大型软件系统中代码开发、调试和验证的痛点，如资源依赖、语义到执行的鸿沟，可被应用于智能化构建与优化的核心环节。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：9/10</li>
+<li>理由：论文明确声明发布了基于Qwen2.5-Coder系列模型的智能体套件，并提供了包含300k SWE-ZERO和13k SWE-HERO轨迹的数据集，这些资源对于快速复现和应用至关重要。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为87.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_4">摘要</h3>
+<p>We introduce SWE-ZERO to SWE-HERO, a two-stage SFT recipe that achieves state-of-the-art results on SWE-bench by distilling open-weight frontier LLMs. Our pipeline replaces resource-heavy dependencies with an evolutionary refinement strategy: (1) SWE-ZERO utilizes large-scale, execution-free trajectories to master code semantics and repository-level reasoning, and (2) SWE-HERO applies targeted, execution-backed refinement to transition these semantic intuitions into rigorous engineering workflows. Our empirical results set a new benchmark for open-source models of comparable size. We release a dataset of 300k SWE-ZERO and 13k SWE-HERO trajectories distilled from Qwen3-Coder-480B, alongside a suite of agents based on the Qwen2.5-Coder series. Notably, SWE-HERO-32B achieves a 62.2% resolution rate on SWE-bench Verified. Furthermore, despite being trained exclusively on Python, our agents demonstrate robust zero-shot transferability on SWE-bench Multilingual, reaching 44.1% and confirming the paradigm's generalizability across diverse languages.</p>
+<p><a href="https://arxiv.org/abs/2604.01496">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.01496.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.01496">下载Tex</a></p>
+<h2 id="can-large-language-models-model-programs-formally">Can Large Language Models Model Programs Formally?</h2>
+<h3 id="_5">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：9/10</li>
+<li>理由：论文直接讨论了'大型语言模型(LLMs)'、'形式化验证'、'模型检查'、'程序建模'等核心术语，这些与研究主题中的'大语言模型'、'形式化验证'等关键词高度匹配。论文聚焦于LLMs在程序建模方面的能力，这是形式化验证的关键环节。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文的实验设置针对LLMs的程序建模能力评估，使用了HumanEval、MBPP和LiveCodeBench这三个知名基准测试作为数据源，这符合形式化验证领域对程序建模研究的常见实验标准。实验验证了LLMs在程序建模方面的局限性，这与研究主题中形式化验证的痛点直接相关。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文提出的Model-Bench基准测试和评估流程直接针对LLMs在程序建模方面的能力评估，这是形式化验证（特别是模型检查）中的核心挑战之一。该方法直接解决了研究主题中提到的'大语言模型如何辅助...形式化验证'的问题，特别是针对自动程序建模的难点。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：5/10</li>
+<li>理由：论文明确提出了Model-Bench基准测试和配套流程，但摘要中未明确说明是否开源代码、预训练模型或公开数据集。虽然提到了基准测试包含400个Python程序，但未说明这些数据是否公开可获取。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为84.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_6">摘要</h3>
+<p>In the digital age, ensuring the correctness, safety, and reliability of software through formal verification is paramount, particularly as software increasingly underpins critical infrastructure. Formal verification, split into theorem proving and model checking, provides a feasible and reliable path. Unlike theorem proving, which yields notable advances, model checking has been less focused due to the difficulty of automatic program modeling. To fill this gap, we introduce Model-Bench, a benchmark and an accompanying pipeline for evaluating and improving LLMs' program modeling capability by modeling Python programs into verification-ready model checking specifications checkable by its accompanying model checker. Model-Bench comprises 400 Python programs derived from three well-known benchmarks (HumanEval, MBPP, and LiveCodeBench). Our extensive experiments reveal significant limitations in LLMs' program modeling and further provide inspiring directions.</p>
+<p><a href="https://arxiv.org/abs/2604.01851">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.01851.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.01851">下载Tex</a></p>
+<h2 id="testdecision-sequential-test-suite-generation-via-greedy-optimization-and-reinforcement-learning">TestDecision: Sequential Test Suite Generation via Greedy Optimization and Reinforcement Learning</h2>
+<h3 id="_7">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：9/10</li>
+<li>理由：论文直接讨论了研究主题中的核心子领域'测试调试'。摘要中明确提到'LLMs'、'automated software testing'、'test suite generation'、'reinforcement learning'，这些术语与研究主题中的'大语言模型辅助代码开发、测试调试'高度匹配。论文提出的TestDecision方法正是利用LLM进行自动化测试生成，属于主题明确涵盖的技术范畴。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文在自动化软件测试的标准基准ULT和LiveCodeBench上进行评估，使用了该领域公认的核心指标，如分支覆盖率（branch coverage）、执行通过率（execution pass rate）和缺陷发现数量（bugs found）。这些实验设置有效验证了该方法在利用LLM进行自动化测试生成这一主题场景下的性能提升和有效性。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文提出的TestDecision方法（结合贪心优化和强化学习的序列化测试套件生成方法）可以直接应用于研究主题下的'测试调试'环节，旨在解决LLM在自动化测试生成中存在的'结构短视'、缺乏套件级视角的已知痛点。该方法通过将测试套件生成建模为MDP并利用强化学习训练LLM，直接针对如何让LLM更有效地辅助生成高质量测试套件这一核心问题。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：4/10</li>
+<li>理由：摘要中未明确声明代码、模型或数据集的公开状态。论文提到了使用开源LLM（如7B模型）和公开基准（ULT, LiveCodeBench），但未直接说明论文的代码实现、训练后的模型或生成的数据是否开源。这给快速复现和应用带来了一定不确定性。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为83.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_8">摘要</h3>
+<p>With the rapid evolution of LLMs, automated software testing is witnessing a paradigm shift. While proprietary models like GPT-4o demonstrate impressive capabilities, their high deployment costs and data privacy concerns make open-source LLMs the practical imperative for many academic and industrial scenarios. In the field of automated test generation, it has evolved to iterative workflows to construct test suites based on LLMs. When utilizing open-source LLMs, we empirically observe they lack a suite-level perspective, suffering from structural myopia-failing to generate new tests with large marginal gain based on the current covered status. In this paper, from the perspective of sequences, we formalize test suite generation as a MDP and demonstrate that its objective exhibits monotone submodularity, which enables an effective relaxation of this NP-hard global optimization into a tractable step-wise greedy procedure. Guided by this insight, we propose TestDecision, which transforms LLMs into neural greedy experts. TestDecision consists of two synergistic components: (1) an inference framework which implements test suite construction following a step-wise greedy strategy; and (2) a training pipeline of reinforcement learning which equips the base LLM with sequential test generation ability to maximize marginal gain. Comprehensive evaluations on the ULT benchmark demonstrate that TestDecision significantly outperforms existing advanced methods. It brings an improvement between 38.15-52.37% in branch coverage and 298.22-558.88% in execution pass rate over all base models, achieving a comparable performance on 7B backbone with a much larger proprietary LLM GPT-5.2. Furthermore, TestDecision can find 58.43-95.45% more bugs than vanilla base LLMs and exhibit superior generalization on LiveCodeBench, proving its capability to construct high-quality test suites.</p>
+<p><a href="https://arxiv.org/abs/2604.01799">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.01799.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.01799">下载Tex</a></p>
+<h2 id="from-guessing-to-placeholding-a-cost-theoretic-framework-for-uncertainty-aware-code-completion">From Guessing to Placeholding: A Cost-Theoretic Framework for Uncertainty-Aware Code Completion</h2>
+<h3 id="_9">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：9/10</li>
+<li>理由：论文直接讨论大型语言模型（LLMs）在代码补全中的应用，涉及模型参数（1.5B-14B）、真实世界数据集、强化学习等技术，与主题中“大语言模型辅助代码开发”高度匹配，但未提及测试调试、形式化验证或系统调优的具体技术。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：论文实验基于真实世界交互数据（300万次）和编辑日志，评估指标聚焦于编辑成本降低（19%-50%），这直接关联代码开发效率，但未明确涉及测试调试、形式化验证或系统调优等主题其他方面。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文提出的自适应占位符补全（APC）框架针对代码补全中LLM在不确定上下文下的错误预测问题，通过成本最小化理论和强化学习优化，可直接应用于辅助代码开发，但未直接涉及测试调试、验证或系统自动化调优。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：5/10</li>
+<li>理由：论文摘要未明确说明是否提供开源代码、预训练模型或公开数据集，仅提及使用真实世界编辑日志构建训练数据，因此无法确认可获得性。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为80.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_10">摘要</h3>
+<p>While Large Language Models (LLMs) have demonstrated exceptional proficiency in code completion, they typically adhere to a Hard Completion (HC) paradigm, compelling the generation of fully concrete code even amidst insufficient context. Our analysis of 3 million real-world interactions exposes the limitations of this strategy: 61% of the generated suggestions were either edited after acceptance or rejected despite exhibiting over 80% similarity to the user's subsequent code, suggesting that models frequently make erroneous predictions at specific token positions. Motivated by this observation, we propose Adaptive Placeholder Completion (APC), a collaborative framework that extends HC by strategically outputting explicit placeholders at high-entropy positions, allowing users to fill directly via IDE navigation. Theoretically, we formulate code completion as a cost-minimization problem under uncertainty. Premised on the observation that filling placeholders incurs lower cost than correcting errors, we prove the existence of a critical entropy threshold above which APC achieves strictly lower expected cost than HC. We instantiate this framework by constructing training data from filtered real-world edit logs and design a cost-based reward function for reinforcement learning. Extensive evaluations across 1.5B--14B parameter models demonstrate that APC reduces expected editing costs from 19% to 50% while preserving standard HC performance. Our work provides both a theoretical foundation and a practical training framework for uncertainty-aware code completion, demonstrating that adaptive abstention can be learned end-to-end without sacrificing conventional completion quality.</p>
+<p><a href="https://arxiv.org/abs/2604.01849">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.01849.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.01849">下载Tex</a></p>
+<h2 id="brief-is-better-non-monotonic-chain-of-thought-budget-effects-in-function-calling-language-agents">Brief Is Better: Non-Monotonic Chain-of-Thought Budget Effects in Function-Calling Language Agents</h2>
+<h3 id="_11">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：9/10</li>
+<li>理由：论文直接讨论了与研究主题高度相关的核心技术。它聚焦于'语言智能体'(language agents)在'函数调用'(function-calling)这一具体任务上的表现，这直接对应了研究主题中'大语言模型如何辅助代码开发'的核心场景。论文使用的技术术语，如'Chain-of-Thought (CoT) reasoning'、'function-calling agents'、'Qwen2.5-1.5B-Instruct'模型以及'Berkeley Function Calling Leaderboard'数据集，都与主题中'大语言模型'、'代码开发'、'测试调试'等关键词高度相关。论文的核心发现——推理长度对智能体准确性的非单调影响及其机制（如函数路由错误），直接触及了主题中'辅助代码开发'和'系统自动化调优'的方法论层面。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文的实验设置与研究主题的场景适配性高。它使用'Berkeley Function Calling Leaderboard v3 Multiple'作为基准数据集，这是一个专门评估语言模型函数调用能力的公开基准，与主题中'代码开发'（尤其是API调用、库函数使用）的测试场景高度契合。评估指标是任务准确率，并进行了详细的错误分解（如错误选择函数、幻觉函数），这直接衡量了智能体在结构化工具使用环境下的可靠性和有效性，符合主题对'辅助开发'工具进行'测试调试'和'验证'的需求。实验系统地研究了不同推理预算（token数）的影响，这为'系统自动化调优'（如资源分配、性能优化）提供了实证依据。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文提出的方法（Function-Routing CoT, FR-CoT）与研究主题的核心问题有较强的直接关联性。该方法旨在优化语言智能体在函数调用任务中的推理过程，通过结构化、简洁的思维链模板来强制智能体在推理初期就承诺一个有效的函数名，从而减少函数幻觉和提高可靠性。这直接针对了主题中'大语言模型辅助代码开发'的一个关键痛点：如何确保模型生成的代码或API调用是准确、可靠且可验证的。FR-CoT提供了一种'结构性可靠性保证'，这与主题中'形式化验证'和'系统自动化调优'的目标方向一致。该方法可以被直接应用于构建更可靠的代码生成或自动化测试工具链中。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：3/10</li>
+<li>理由：论文摘要中没有明确提及是否提供了开源代码、预训练模型或公开数据集。虽然论文使用了公开基准（Berkeley Function Calling Leaderboard），但摘要本身并未说明作者是否发布了其实验代码、FR-CoT方法的实现或相关模型检查点。这对于其他研究者快速复现结果、应用该方法到相关主题（如构建智能化开发工具）构成了不确定性。因此，基于摘要信息，无法确认其代码与数据的可获得性。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为80.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_12">摘要</h3>
+<p>How much should a language agent think before taking action? Chain-of-thought (CoT) reasoning is widely assumed to improve agent performance, but the relationship between reasoning length and accuracy in structured tool-use settings remains poorly understood. We present a systematic study of CoT budget effects on function-calling agents, sweeping six token budgets (0--512) across 200 tasks from the Berkeley Function Calling Leaderboard v3 Multiple benchmark. Our central finding is a striking non-monotonic pattern on Qwen2.5-1.5B-Instruct: brief reasoning (32 tokens) dramatically improves accuracy by 45% relative over direct answers, from 44.0% to 64.0%, while extended reasoning (256 tokens) degrades performance well below the no-CoT baseline, to 25.0% (McNemar p &lt; 0.001). A three-way error decomposition reveals the mechanism. At d = 0, 30.5% of tasks fail because the model selects the wrong function from the candidate set; brief CoT reduces this to 1.5%, effectively acting as a function-routing step, while long CoT reverses the gain, yielding 28.0% wrong selections and 18.0% hallucinated functions at d = 256. Oracle analysis shows that 88.6% of solvable tasks require at most 32 reasoning tokens, with an average of 27.6 tokens, and a finer-grained sweep indicates that the true optimum lies at 8--16 tokens. Motivated by this routing effect, we propose Function-Routing CoT (FR-CoT), a structured brief-CoT method that templates the reasoning phase as "Function: [name] / Key args: [...]," forcing commitment to a valid function name at the start of reasoning. FR-CoT achieves accuracy statistically equivalent to free-form d = 32 CoT while reducing function hallucination to 0.0%, providing a structural reliability guarantee without budget tuning.</p>
+<p><a href="https://arxiv.org/abs/2604.02155">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.02155.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.02155">下载Tex</a></p>
+<h2 id="automated-functional-testing-for-malleable-mobile-application-driven-from-user-intent">Automated Functional Testing for Malleable Mobile Application Driven from User Intent</h2>
+<h3 id="_13">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：9/10</li>
+<li>理由：论文直接提及LLM（大语言模型）、代码生成、自动化测试生成、GUI测试等术语，与研究主题中的“大语言模型辅助代码开发、测试调试”高度匹配。但未讨论形式化验证或系统自动化调优的具体技术。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：实验基于六个流行移动应用构建的基准测试，包含正确和错误功能，评估了LLM引导的测试生成框架在验证用户指定功能方面的有效性。这直接关联到研究主题中“测试调试”和“系统自动化调优”的移动应用场景，但未涉及形式化验证或更广泛的软件系统。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文提出基于LLM的GUI测试生成框架，用于自动验证用户通过LLM代码生成实现的功能。这直接应用于研究主题的“测试调试”核心问题，针对自动化验证用户驱动功能的痛点，但未涉及代码开发、形式化验证或系统调优的其他方面。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：3/10</li>
+<li>理由：论文未明确提及是否提供开源代码、预训练模型或公开数据集。摘要中提到了构建基准测试，但未说明其公开性。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为78.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_14">摘要</h3>
+<p>Software malleability allows applications to be easily changed, configured, and adapted even after deployment. While prior work has explored configurable systems, adaptive recommender systems, and malleable GUIs, these approaches are often tailored to specific software and lack generalizability. In this work, we envision per-user malleable mobile applications, where end-users can specify requirements that are automatically implemented via LLM-based code generation. However, realizing this vision requires overcoming the key challenge of designing automated test generation that can reliably verify both the presence and correctness of user-specified functionalities. We propose \tool, a user-requirement-driven GUI test generation framework that incrementally navigates the UI, triggers desired functionalities, and constructs LLM-guided oracles to validate correctness. We build a benchmark spanning six popular mobile applications with both correct and faulty user-requested functionalities, demonstrating that \tool effectively validates per-user features and is practical for real-world deployment. Our work highlights the feasibility of shifting mobile app development from a product-manager-driven to an end-user-driven paradigm.</p>
+<p><a href="https://arxiv.org/abs/2604.02079">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.02079.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.02079">下载Tex</a></p>
+<h2 id="semantic-evolution-over-populations-for-llm-guided-automated-program-repair">Semantic Evolution over Populations for LLM-Guided Automated Program Repair</h2>
+<h3 id="_15">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：8/10</li>
+<li>理由：论文直接讨论了大语言模型（LLMs）、自动程序修复（APR）、迭代精化、语义进化算法等术语，与研究主题中的“大语言模型辅助代码开发、测试调试”高度匹配。但未涉及形式化验证或系统自动化调优，核心技术聚焦于APR而非更广泛的构建与优化。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：论文实验聚焦于自动程序修复（APR）任务，这是研究主题中“大语言模型辅助代码开发、测试调试”的核心子领域。摘要提到实验评估了修复效果，并与现有LLM-based APR方法比较，验证了方法在APR场景下的有效性，但未指定具体数据集或评估指标是否为该领域公认标准。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文提出的EvolRepair框架（基于种群的语义进化）直接针对LLM-guided APR中的迭代精化问题，如保持修复假设多样性、组合互补部分修复等痛点。该方法可应用于研究主题的“代码开发、测试调试”环节，特别是自动化错误修复，与主题核心问题高度相关。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：5/10</li>
+<li>理由：摘要未明确提及开源代码、预训练模型或公开数据集的提供情况，但此类研究通常会在论文发表时或通过GitHub等平台发布代码。由于缺乏直接证据，评分基于常见实践假设，但存在不确定性。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为77.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_16">摘要</h3>
+<p>Large language models (LLMs) have recently shown strong potential for automated program repair (APR), particularly through iterative refinement that generates and improves candidate patches. However, state-of-the-art iterative refinement LLM-based APR approaches cannot fully address challenges, including maintaining useful diversity among repair hypotheses, identifying semantically related repair families, composing complementary partial fixes, exploiting structured failure information, and escaping structurally flawed search regions. In this paper, we propose a Population-Based Semantic Evolution framework for APR iterative refinement, called EvolRepair, that formulates LLM-based APR as a semantic evolutionary algorithm. EvolRepair reformulates the search paradigm of classic genetic algorithm for APR, but replaces its syntax-based operators with semantics-aware components powered by LLMs and structured execution feedback. Candidate repairs are organized into behaviorally coherent groups, enabling the algorithm to preserve diversity, reason over repair families, and synthesize stronger candidates by recombining complementary repair insights across the population. By leveraging structured failure patterns to guide search direction, EvolRepair can both refine promising repair strategies and shift toward alternative abstractions when necessary. Our experiments show that EvolRepair substantially improves repair effectiveness over existing LLM-based APR approaches.</p>
+<p><a href="https://arxiv.org/abs/2604.02134">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.02134.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.02134">下载Tex</a></p>
+<h2 id="when-reward-hacking-rebounds-understanding-and-mitigating-it-with-representation-level-signals">When Reward Hacking Rebounds: Understanding and Mitigating It with Representation-Level Signals</h2>
+<h3 id="_17">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：8/10</li>
+<li>理由：论文直接涉及大语言模型（LLMs）、强化学习、奖励黑客、代码任务、评估器、GRPO（假设为一种策略优化方法）等技术术语，与主题中的大语言模型辅助代码开发、测试调试高度相关，但未明确讨论形式化验证或系统自动化调优的具体技术。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文实验聚焦于代码任务中的奖励黑客问题，使用环境操纵设置（如重写评估器代码）作为受控测试平台，这直接关联到大型软件系统中代码开发与测试调试的自动化验证场景，实验设置高度适配主题。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：论文提出的Advantage Modification方法，通过将捷径概念分数集成到GRPO优势计算中，在策略更新前惩罚黑客行为，旨在提高强化学习在代码任务中的鲁棒性。这可以间接应用于主题中的代码开发、测试调试和系统自动化调优，以缓解模型作弊问题，但并非直接针对所有核心问题（如形式化验证）。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：3/10</li>
+<li>理由：论文未明确提及提供开源代码、预训练模型或公开数据集，摘要中仅描述了方法原理，缺乏代码可获得性的直接证据。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为75.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_18">摘要</h3>
+<p>Reinforcement learning for LLMs is vulnerable to reward hacking, where models exploit shortcuts to maximize reward without solving the intended task. We systematically study this phenomenon in coding tasks using an environment-manipulation setting, where models can rewrite evaluator code to trivially pass tests without solving the task, as a controlled testbed. Across both studied models, we identify a reproducible three-phase rebound pattern: models first attempt to rewrite the evaluator but fail, as their rewrites embed test cases their own solutions cannot pass. They then temporarily retreat to legitimate solving. When legitimate reward remains scarce, they rebound into successful hacking with qualitatively different strategies. Using representation engineering, we extract concept directions for shortcut, deception, and evaluation awareness from domain-general contrastive pairs and find that the shortcut direction tracks hacking behavior most closely, making it an effective representational proxy for detection. Motivated by this finding, we propose Advantage Modification, which integrates shortcut concept scores into GRPO advantage computation to penalize hacking rollouts before policy updates. Because the penalty is internalized into the training signal rather than applied only at inference time, Advantage Modification provides more robust suppression of hacking compared with generation-time activation steering.</p>
+<p><a href="https://arxiv.org/abs/2604.01476">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.01476.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.01476">下载Tex</a></p>
+<h2 id="assertain-automated-security-assertion-generation-using-large-language-models">Assertain: Automated Security Assertion Generation Using Large Language Models</h2>
+<h3 id="_19">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：9/10</li>
+<li>理由：论文直接使用“large language models”术语，涉及自动化、安全断言生成、形式化验证，与研究主题中的大语言模型、代码开发、测试调试、形式化验证高度匹配，但聚焦硬件安全而非通用软件构建。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：6/10</li>
+<li>理由：实验在11个硬件设计上评估，使用正确断言生成、CWE覆盖率和架构缺陷检测作为指标，这些是硬件安全验证的典型评估方式，但研究主题更广泛地关注软件系统构建优化，实验设置仅部分适配。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文提出使用大语言模型自动生成安全断言，这直接关联研究主题中“大语言模型辅助代码开发、测试调试、形式化验证”的部分，特别是形式化验证和自动化调优，但主要针对硬件而非通用软件系统。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：1/10</li>
+<li>理由：论文摘要未提及代码、模型或数据集是否开源或公开，仅描述了方法框架和评估结果，无法确认可获得性。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为74.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_20">摘要</h3>
+<p>The increasing complexity of modern system-on-chip designs amplifies hardware security risks and makes manual security property specification a major bottleneck in formal property verification. This paper presents Assertain, an automated framework that integrates RTL design analysis, Common Weakness Enumeration (CWE) mapping, and threat model intelligence to automatically generate security properties and executable SystemVerilog Assertions. Assertain leverages large language models with a self-reflection refinement mechanism to ensure both syntactic correctness and semantic consistency. Evaluated on 11 representative hardware designs, Assertain outperforms GPT-5 by 61.22%, 59.49%, and 67.92% in correct assertion generation, unique CWE coverage, and architectural flaw detection, respectively. These results demonstrate that Assertain significantly expands vulnerability coverage, improves assertion quality, and reduces manual effort in hardware security verification.</p>
+<p><a href="https://arxiv.org/abs/2604.01583">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.01583.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.01583">下载Tex</a></p>
+<h2 id="prodcodebench-a-production-derived-benchmark-for-evaluating-ai-coding-agents">ProdCodeBench: A Production-Derived Benchmark for Evaluating AI Coding Agents</h2>
+<h3 id="_21">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：7/10</li>
+<li>理由：论文直接讨论AI编码代理（AI coding agents）、大语言模型（LLM）、基准测试（benchmarks）、代码变更（code change）、测试（tests）、静态分析（static analysis）等技术术语，与研究主题中的代码开发、测试调试部分高度重合，但未提及形式化验证或系统自动化调优的具体技术。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：实验基于真实生产环境数据构建基准（ProdCodeBench），涵盖七种编程语言，使用解决率（solve rates）评估AI编码代理，验证了迭代验证（如测试执行和静态分析）对性能的影响，这与研究主题中代码开发、测试调试的评估需求高度适配，但未直接涉及形式化验证或系统自动化调优。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：论文提出的生产衍生基准构建方法（包括LLM任务分类、测试相关性验证等）可直接应用于评估大语言模型在代码开发中的辅助效果，针对现有基准与真实使用差异的痛点，但未直接涉及形式化验证或系统自动化调优的核心方法。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：5/10</li>
+<li>理由：论文明确表示分享方法论和经验教训以帮助其他组织构建类似基准，但未明确提及开源代码、预训练模型或公开数据集的具体提供方式，可能仅提供方法论描述而非可直接使用的资源。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为70.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_22">摘要</h3>
+<p>Benchmarks that reflect production workloads are better for evaluating AI coding agents in industrial settings, yet existing benchmarks differ from real usage in programming language distribution, prompt style and codebase structure. This paper presents a methodology for curating production-derived benchmarks, illustrated through ProdCodeBench - a benchmark built from real sessions with a production AI coding assistant. We detail our data collection and curation practices including LLM-based task classification, test relevance validation, and multi-run stability checks which address challenges in constructing reliable evaluation signals from monorepo environments. Each curated sample consists of a verbatim prompt, a committed code change and fail-to-pass tests spanning seven programming languages. Our systematic analysis of four foundation models yields solve rates from 53.2% to 72.2% revealing that models making greater use of work validation tools, such as executing tests and invoking static analysis, achieve higher solve rates. This suggests that iterative verification helps achieve effective agent behavior and that exposing codebase-specific verification mechanisms may significantly improve the performance of externally trained agents operating in unfamiliar environments. We share our methodology and lessons learned to enable other organizations to construct similar production-derived benchmarks.</p>
+<p><a href="https://arxiv.org/abs/2604.01527">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.01527.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.01527">下载Tex</a></p>
+<h2 id="contextualizing-sink-knowledge-for-java-vulnerability-discovery">Contextualizing Sink Knowledge for Java Vulnerability Discovery</h2>
+<h3 id="_23">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：6/10</li>
+<li>理由：论文直接使用了LLM（大语言模型）进行静态过滤，并涉及模糊测试、漏洞发现等术语，部分匹配研究主题中的“大语言模型辅助代码开发、测试调试”，但未讨论构建、形式化验证或系统自动化调优的核心技术。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：实验在真实世界的Java基准测试上进行，并与最先进的Java模糊测试工具Jazzer比较，评估指标（发现的漏洞数量）直接验证了在软件安全测试场景下的有效性，这符合研究主题中“测试调试”部分的公认标准。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：论文提出的GONDAR框架结合了LLM辅助的静态过滤和协作代理，直接针对软件漏洞发现（测试调试）的痛点，其方法可应用于研究主题中的代码测试和验证环节，但未直接涉及构建、形式化验证或系统自动化调优。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：8/10</li>
+<li>理由：论文提到GONDAR已集成到Linux Foundation OpenSSF的OSS-CRS项目中，这表明该框架很可能以开源形式提供，便于快速跟进和应用。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为70.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_24">摘要</h3>
+<p>Java applications are prone to vulnerabilities stemming from the insecure use of security-sensitive APIs, such as file operations enabling path traversal or deserialization routines allowing remote code execution. These sink APIs encode critical information for vulnerability discovery: the program-specific constraints required to reach them and the exploitation conditions necessary to trigger security flaws. Despite this, existing fuzzers largely overlook such vulnerability-specific knowledge, limiting their effectiveness. We present GONDAR, a sink-centric fuzzing framework that systematically leverages sink API semantics for targeted vulnerability discovery. GONDAR first identifies reachable and exploitable sink call sites through CWE-specific scanning combined with LLM-assisted static filtering. It then deploys two specialized agents that work collaboratively with a coverage-guided fuzzer: an exploration agent generates inputs to reach target call sites by iteratively solving path constraints, while an exploitation agent synthesizes proof-of-concept exploits by reasoning about and satisfying vulnerability-triggering conditions. The agents and fuzzer continuously exchange seeds and runtime feedback, complementing each other. We evaluated GONDAR on real-world Java benchmarks, where it discovers four times more vulnerabilities than Jazzer, the state-of-the-art Java fuzzer. Notably, GONDAR also demonstrated strong performance in the DARPA AI Cyber Challenge, and is integrated into OSS-CRS, a sandbox project in The Linux Foundation's OpenSSF, to improve the security of open-source software.</p>
+<p><a href="https://arxiv.org/abs/2604.01645">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.01645.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.01645">下载Tex</a></p>
+<h2 id="_25">页面生成的统计项</h2>
+<p>本页面使用deepseek-chat模型生成，token用量统计如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">用量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">提示词缓存未命中tokens</td>
+<td style="text-align: left;">788360</td>
+</tr>
+<tr>
+<td style="text-align: left;">提示词缓存命中tokens</td>
+<td style="text-align: left;">72960</td>
+</tr>
+<tr>
+<td style="text-align: left;">补全tokens</td>
+<td style="text-align: left;">356641</td>
+</tr>
+<tr>
+<td style="text-align: left;">思考链tokens</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">总计</td>
+<td style="text-align: left;">1217961</td>
+</tr>
+</tbody>
+</table>
+<p>页面生成的总用时为9m 50s</p>
+<p>&lt;&lt; <a href="./mkdocs/docs/LLM4SE/2026-04-02.md">昨天的论文总结</a></p>
+<p>&gt;&gt; <a href="./mkdocs/docs/LLM4SE/2026-04-04.md">明天的论文总结</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

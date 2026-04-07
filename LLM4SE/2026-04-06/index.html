@@ -1,0 +1,1861 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Concurrent_reasoning/2026-04-06/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>LLM4SE - arXiv Sniffer Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2026-04-06" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="arXiv Sniffer Site" class="md-header__button md-logo" aria-label="arXiv Sniffer Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            arXiv Sniffer Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LLM4SE
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-grey" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../readme/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  说明
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Concurrent_reasoning/2026-04-06/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Concurrent reasoning
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  LLM4SE
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="arXiv Sniffer Site" class="md-nav__button md-logo" aria-label="arXiv Sniffer Site" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    arXiv Sniffer Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    说明
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Concurrent_reasoning/2026-04-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concurrent reasoning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM4SE
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LLM4SE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#beyond-resolution-rates-behavioral-drivers-of-coding-agent-success-and-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beyond Resolution Rates: Behavioral Drivers of Coding Agent Success and Failure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Beyond Resolution Rates: Behavioral Drivers of Coding Agent Success and Failure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sustainability-analysis-of-prompt-strategies-for-slm-based-automated-test-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sustainability Analysis of Prompt Strategies for SLM-based Automated Test Generation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sustainability Analysis of Prompt Strategies for SLM-based Automated Test Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#industrycode-a-benchmark-for-industry-code-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IndustryCode: A Benchmark for Industry Code Generation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IndustryCode: A Benchmark for Industry Code Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-textbook-formalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automatic Textbook Formalization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automatic Textbook Formalization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paft-preservation-aware-fine-tuning-for-minimal-edit-program-repair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PAFT: Preservation Aware Fine-Tuning for Minimal-Edit Program Repair
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PAFT: Preservation Aware Fine-Tuning for Minimal-Edit Program Repair">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runtime-execution-traces-guided-automated-program-repair-with-multi-agent-debate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime Execution Traces Guided Automated Program Repair with Multi-Agent Debate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Runtime Execution Traces Guided Automated Program Repair with Multi-Agent Debate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chatsva-bridging-sva-generation-for-hardware-verification-via-task-specific-llms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ChatSVA: Bridging SVA Generation for Hardware Verification via Task-Specific LLMs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ChatSVA: Bridging SVA Generation for Hardware Verification via Task-Specific LLMs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-assisted-unit-test-writing-and-test-driven-code-refactoring-a-case-study" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI-Assisted Unit Test Writing and Test-Driven Code Refactoring: A Case Study
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI-Assisted Unit Test Writing and Test-Driven Code Refactoring: A Case Study">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gbqa-a-game-benchmark-for-evaluating-llms-as-quality-assurance-engineers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GBQA: A Game Benchmark for Evaluating LLMs as Quality Assurance Engineers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GBQA: A Game Benchmark for Evaluating LLMs as Quality Assurance Engineers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluating-the-formal-reasoning-capabilities-of-large-language-models-through-chomsky-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluating the Formal Reasoning Capabilities of Large Language Models through Chomsky Hierarchy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluating the Formal Reasoning Capabilities of Large Language Models through Chomsky Hierarchy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        页面生成的统计项
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#beyond-resolution-rates-behavioral-drivers-of-coding-agent-success-and-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beyond Resolution Rates: Behavioral Drivers of Coding Agent Success and Failure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Beyond Resolution Rates: Behavioral Drivers of Coding Agent Success and Failure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sustainability-analysis-of-prompt-strategies-for-slm-based-automated-test-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sustainability Analysis of Prompt Strategies for SLM-based Automated Test Generation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sustainability Analysis of Prompt Strategies for SLM-based Automated Test Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#industrycode-a-benchmark-for-industry-code-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IndustryCode: A Benchmark for Industry Code Generation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="IndustryCode: A Benchmark for Industry Code Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-textbook-formalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automatic Textbook Formalization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automatic Textbook Formalization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paft-preservation-aware-fine-tuning-for-minimal-edit-program-repair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PAFT: Preservation Aware Fine-Tuning for Minimal-Edit Program Repair
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PAFT: Preservation Aware Fine-Tuning for Minimal-Edit Program Repair">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runtime-execution-traces-guided-automated-program-repair-with-multi-agent-debate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime Execution Traces Guided Automated Program Repair with Multi-Agent Debate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Runtime Execution Traces Guided Automated Program Repair with Multi-Agent Debate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chatsva-bridging-sva-generation-for-hardware-verification-via-task-specific-llms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ChatSVA: Bridging SVA Generation for Hardware Verification via Task-Specific LLMs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ChatSVA: Bridging SVA Generation for Hardware Verification via Task-Specific LLMs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-assisted-unit-test-writing-and-test-driven-code-refactoring-a-case-study" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AI-Assisted Unit Test Writing and Test-Driven Code Refactoring: A Case Study
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AI-Assisted Unit Test Writing and Test-Driven Code Refactoring: A Case Study">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gbqa-a-game-benchmark-for-evaluating-llms-as-quality-assurance-engineers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GBQA: A Game Benchmark for Evaluating LLMs as Quality Assurance Engineers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GBQA: A Game Benchmark for Evaluating LLMs as Quality Assurance Engineers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluating-the-formal-reasoning-capabilities-of-large-language-models-through-chomsky-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evaluating the Formal Reasoning Capabilities of Large Language Models through Chomsky Hierarchy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluating the Formal Reasoning Capabilities of Large Language Models through Chomsky Hierarchy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与主题的相关性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        摘要
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        页面生成的统计项
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="2026-04-06">2026-04-06论文总结</h1>
+<p><strong>主题</strong>: 面向大型软件系统的智能化构建与优化：研究大语言模型如何辅助代码开发、测试调试、形式化验证，并探索其在系统自动化调优方面的核心方法与关键技术。</p>
+<p>在这个主题下筛选得到了<strong>10篇</strong>论文。</p>
+<h2 id="beyond-resolution-rates-behavioral-drivers-of-coding-agent-success-and-failure">Beyond Resolution Rates: Behavioral Drivers of Coding Agent Success and Failure</h2>
+<h3 id="_1">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：9/10</li>
+<li>理由：技术术语高度重合。论文直接讨论了“Large Language Models (LLMs)”、“coding agents”、“automated software engineering”、“tool-augmented interaction loops”和“benchmarked problems”，这些都与研究主题中的“大语言模型”、“代码开发”、“测试调试”和“系统自动化调优”紧密相关。核心焦点是LLM在编码任务中的应用和局限性。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：实验设置高度适配研究主题。论文分析了19个智能体（8个框架、14个LLM）在500个任务上的9,374条轨迹，覆盖了LLM驱动的编码智能体（coding agents）在软件工程中的行为。这直接对应主题中“大语言模型如何辅助代码开发”的核心场景，并使用了基准任务进行实证评估，验证了智能体在代码生成和调试中的成功与失败模式。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：方法论与研究主题有较强关联性。论文通过行为分析（如轨迹结构、上下文收集、验证策略）揭示了编码智能体失败的原因（如架构推理和领域知识差距），并区分了LLM能力与框架设计的影响。这直接针对主题中“测试调试”和“系统自动化调优”的痛点，提供了理解智能体局限性的方法，但未直接提出优化或调优的新技术。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：5/10</li>
+<li>理由：论文摘要未明确提及是否提供开源代码、预训练模型或公开数据集。虽然研究基于大规模实证分析（9,374条轨迹、19个智能体、500个任务），但未说明数据或代码的可用性。因此，无法确认其可获得性，需查阅论文全文或补充材料。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为82.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_2">摘要</h3>
+<p>Coding agents represent a new paradigm in automated software engineering, combining the reasoning capabilities of Large Language Models (LLMs) with tool-augmented interaction loops. However, coding agents still have severe limitations. Top-ranked LLM-based coding agents still fail on over 20% of benchmarked problems. Yet, we lack a systematic understanding of why (i.e., the causes) agents fail, and how failure unfolds behaviorally. We present a large-scale empirical study analyzing 9,374 trajectories from 19 agents (8 coding agent frameworks, 14 LLMs) on 500 tasks. We organize our analysis around three research questions. First, we investigate why agents fail on specific tasks and find that patch complexity alone does not explain difficulty: 12 never-solved tasks require only simple patches and were considered easy by human annotators, yet all agents fail due to gaps in architectural reasoning and domain knowledge. Second, we examine how behavioral patterns differentiate success from failure. The widely reported correlation between trajectory length and failure reverses direction once task difficulty is controlled, revealing it as a confound. Instead, trajectory structure discriminates consistently: agents that gather context before editing and invest in validation succeed more often, and these strategies are agent-determined rather than task-adaptive. Third, we disentangle LLM capability from framework design and find that the LLM is the primary driver of both outcome and behavior: agents sharing the same LLM agree on far more tasks than agents sharing the same framework, and the framework performance gap shrinks with each generation of LLM improvement. Framework prompts do influence agent tactics, but this influence diminishes with stronger LLMs.</p>
+<p><a href="https://arxiv.org/abs/2604.02547">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.02547.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.02547">下载Tex</a></p>
+<h2 id="sustainability-analysis-of-prompt-strategies-for-slm-based-automated-test-generation">Sustainability Analysis of Prompt Strategies for SLM-based Automated Test Generation</h2>
+<h3 id="_3">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：9/10</li>
+<li>理由：论文直接讨论了与研究主题相关的核心技术，包括：1）大语言模型（LLMs）和小语言模型（SLMs），这是主题中“大语言模型如何辅助代码开发、测试调试”的核心技术基础；2）自动化测试生成，这是主题中“测试调试”的关键应用场景；3）提示工程策略（如Chain of Thought, Zero-Shot, ReAct等），这是利用语言模型进行自动化任务的核心方法。论文还提到了覆盖率测试质量、执行时间等评估指标，与主题中的“系统自动化调优”相关。因此，技术术语重合度高。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文的实验设置适配于研究主题：1）实验环境使用了三种开源SLMs，这是主题中“大语言模型”的变体，适合研究模型辅助场景；2）评估指标包括执行时间、能源消耗、碳排放和覆盖率测试质量，这些是评估“系统自动化调优”和可持续性的关键指标，覆盖了主题中的“优化”方面；3）实验通过覆盖率分析验证了生成测试脚本的有效性，这与主题中的“测试调试”直接相关。实验设计系统且可控，但未涉及形式化验证等其他主题方面。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文提出的方法（分析不同提示工程策略对SLM-based自动化测试生成可持续性的影响）可以直接应用于解决主题下的核心问题：1）方法针对“大语言模型如何辅助代码开发、测试调试”，通过提示策略优化测试生成过程；2）它解决了主题中“系统自动化调优”的痛点，即如何平衡性能（如覆盖率）与资源消耗（如能源、时间），这对于大型软件系统的智能化构建至关重要。方法提供了具体策略（如Chain of Thought vs. Zero-Shot）的权衡分析，可直接指导实践。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：3/10</li>
+<li>理由：论文摘要未明确提及是否提供了开源代码、预训练模型或公开数据集。摘要中提到了使用三种开源SLMs和受控实验设置，但未说明这些资源是否公开可用。因此，基于提供的信息，无法确认代码与数据的可获得性，这可能会影响快速跟进和应用。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为80.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_4">摘要</h3>
+<p>The growing adoption of prompt-based automation in software testing raises important issues regarding its computational and environmental sustainability. Existing sustainability studies in AI-driven testing primarily focus on large language models, leaving the impact of prompt engineering strategies largely unexplored - particularly in the context of Small Language Models (SLMs). This gap is critical, as prompt design directly influences inference behavior, execution cost, and resource utilization, even when model size is fixed. To the best of our knowledge, this paper presents the first systematic sustainability evaluation of prompt engineering strategies for automated test generation using SLMs. We analyze seven prompt strategies across three open-source SLMs under a controlled experimental setup. Our evaluation jointly considers execution time, token usage, energy consumption, carbon emissions, and coverage test quality, the latter assessed through coverage analysis of the generated test scripts. The results show that prompt strategies have a substantial and independent impact on sustainability outcomes, often outweighing the effect of model choice. Reasoning intensive strategies such as Chain of Thought and Self-Consistency achieve higher coverage but incur significantly higher execution time, energy consumption, and carbon emissions. In contrast, simpler strategies such as Zero-Shot and ReAct deliver competitive coverage test quality with markedly lower environmental cost, while Least-to-Most and Program of Thought offer balanced trade-offs.</p>
+<p><a href="https://arxiv.org/abs/2604.02761">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.02761.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.02761">下载Tex</a></p>
+<h2 id="industrycode-a-benchmark-for-industry-code-generation">IndustryCode: A Benchmark for Industry Code Generation</h2>
+<h3 id="_5">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：8/10</li>
+<li>理由：论文直接讨论了大语言模型（LLMs）在代码生成中的应用，并提及工业领域如金融、自动化、航空航天，与研究主题中的“大语言模型辅助代码开发”高度匹配，但未涉及测试调试、形式化验证或系统自动化调优等具体技术术语。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文实验聚焦于评估大语言模型在工业代码生成任务上的性能，使用多领域、多语言的基准数据集，这直接验证了模型在复杂工业场景下的有效性，与研究主题高度适配。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：论文提出的IndustryCode基准本身是一种评估方法，旨在解决现有基准在工业场景泛化能力评估上的不足，这直接关联研究主题中“大语言模型辅助代码开发”的核心问题，但未涉及测试调试、形式化验证或系统自动化调优等具体方法。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：6/10</li>
+<li>理由：论文明确表示将在接受后公开基准数据集和自动化评估代码，这为快速跟进和应用提供了重要资源，但当前尚未公开，因此评分中等。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为78.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_6">摘要</h3>
+<p>Code generation and comprehension by Large Language Models (LLMs) have emerged as core drivers of industrial intelligence and decision optimization, finding widespread application in fields such as finance, automation, and aerospace. Although recent advancements have demonstrated the remarkable potential of LLMs in general code generation, existing benchmarks are mainly confined to single domains and languages. Consequently, they fail to effectively evaluate the generalization capabilities required for real-world industrial applications or to reflect the coding proficiency demanded by complex industrial scenarios. To bridge this gap, we introduce IndustryCode, the first comprehensive benchmark designed to span multiple industrial domains and programming languages. IndustryCode comprises 579 sub-problems derived from 125 primary industrial challenges, accompanied by rigorous problem descriptions and test cases. It covers a wide range of fields, including finance, automation, aerospace, and remote sensing-and incorporates diverse programming languages such as MATLAB, Python, C++, and Stata. In our evaluation, the top-performing model, Claude 4.5 Opus, achieved an overall accuracy of 68.1% on sub-problems and 42.5% main problems. The benchmark dataset and automated evaluation code will be made publicly available upon acceptance.</p>
+<p><a href="https://arxiv.org/abs/2604.02729">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.02729.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.02729">下载Tex</a></p>
+<h2 id="automatic-textbook-formalization">Automatic Textbook Formalization</h2>
+<h3 id="_7">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：8/10</li>
+<li>理由：论文直接讨论了形式化验证（formalization）和AI系统（Claude 4.5 Opus agents），这与研究主题中的“形式化验证”和“大语言模型辅助”部分高度匹配。但论文未提及代码开发、测试调试或系统自动化调优的具体技术术语，如代码生成、调试工具、性能优化算法等。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：论文实验涉及使用30K Claude 4.5 Opus代理并行协作，在版本控制共享代码库中，一周内将500多页研究生级代数组合学教材形式化为Lean代码（130K行代码，5900个声明）。这验证了AI系统在形式化验证（研究主题的一部分）场景下的有效性和规模，但未直接涉及代码开发、测试调试或系统自动化调优的其他方面。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：6/10</li>
+<li>理由：论文提出的自动AI系统形式化教科书的方法，可以直接应用于研究主题中的形式化验证部分，展示了AI辅助形式化验证的核心方法（如多代理协作、自动化转换），并针对大规模形式化的痛点（如成本、时间）。然而，该方法未明确涉及代码开发、测试调试或系统自动化调优的其他关键技术。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：10/10</li>
+<li>理由：论文明确提到将代码、生成的Lean代码库和并排蓝图网站开源提供，这完全符合代码与数据的可获得性要求，为快速跟进和应用提供了直接支持。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为76.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_8">摘要</h3>
+<p>We present a case study where an automatic AI system formalizes a textbook with more than 500 pages of graduate-level algebraic combinatorics to Lean. The resulting formalization represents a new milestone in textbook formalization scale and proficiency, moving from early results in undergraduate topology and restructuring of existing library content to a full standalone formalization of a graduate textbook. The formalization comprises 130K lines of code and 5900 Lean declarations and was conducted within one week by a total of 30K Claude 4.5 Opus agents collaborating in parallel on a shared code base via version control, simultaneously setting a record in multi-agent software engineering with usable results. The inference cost matches or undercuts what we estimate as the salaries required for a team of human experts, and we expect there is still the potential for large efficiencies to be made without the need for better models. We make our code, the resulting Lean code base and a side-by-side blueprint website available open-source.</p>
+<p><a href="https://arxiv.org/abs/2604.03071">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.03071.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.03071">下载Tex</a></p>
+<h2 id="paft-preservation-aware-fine-tuning-for-minimal-edit-program-repair">PAFT: Preservation Aware Fine-Tuning for Minimal-Edit Program Repair</h2>
+<h3 id="_9">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：7/10</li>
+<li>理由：论文直接讨论了大语言模型(LLMs)、自动化程序修复、细调(fine-tuning)、DeepSeek-Coder-6.7B模型等，与研究主题中的“大语言模型如何辅助代码开发、测试调试”高度匹配，但未涉及形式化验证或系统自动化调优。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文使用了Defects4J和HumanEval-Java这两个程序修复领域的标准基准数据集，并采用pass@1和平均编辑距离(AED)作为评估指标，这些是自动化程序修复研究中公认的实验设置，能有效验证方法在代码修复场景下的性能。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文提出的PAFT（Preservation Aware Fine-Tuning）方法直接针对大语言模型在程序修复中过度编辑代码的问题，通过细调优化生成最小化编辑的补丁。这直接关联研究主题中“大语言模型辅助代码开发、测试调试”的核心问题，特别是修复的精确性和可维护性痛点。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：5/10</li>
+<li>理由：论文摘要未明确提及代码、模型或数据集的公开情况，但此类研究通常会在GitHub等平台开源代码，不过无法从摘要中直接确认，因此评分中等。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为74.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_10">摘要</h3>
+<p>Large language models (LLMs) are effective for automated program repair, but plausible patches that pass the full test suite often rewrite more code than necessary, increasing review and maintenance costs. This over-editing is common because most bugs are localized, while standard supervised fine-tuning provides no explicit signal about which tokens should be preserved and which should be changed. We propose PAFT, a preservation-aware fine-tuning method for minimal-edit program repair. PAFT derives token-level preservation signals by aligning buggy and fixed code, combines them with full-sequence masking, and applies an edit-difficulty curriculum. Across Defects4J and HumanEval-Java, PAFT improves pass@1 by up to 65.6% over standard supervised fine-tuning (StdFT) while reducing average edit distance (AED) by up to 32.6%. On Defects4J with DeepSeek-Coder-6.7B, PAFT also outperforms AdaPatcher, a strong preference-based repair baseline, improving pass@1 from 5.9% to 10.1% while reducing median AED from 61.0 to 42.0. Overall, PAFT preserves stable context and concentrates edits on faulty regions, yielding smaller, more localized, plausible patches without inference-time search, reranking, or post-processing.</p>
+<p><a href="https://arxiv.org/abs/2604.03113">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.03113.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.03113">下载Tex</a></p>
+<h2 id="runtime-execution-traces-guided-automated-program-repair-with-multi-agent-debate">Runtime Execution Traces Guided Automated Program Repair with Multi-Agent Debate</h2>
+<h3 id="_11">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：7/10</li>
+<li>理由：论文直接讨论了自动程序修复、大语言模型、执行轨迹、多智能体辩论等核心技术，与主题中的大语言模型辅助代码开发、测试调试高度匹配，但未涉及形式化验证或系统自动化调优。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文使用Defects4J基准和新构建的近期bug数据集进行评估，Defects4J是自动程序修复领域的标准基准，实验验证了方法在修复复杂逻辑错误和静默故障方面的有效性，这直接关联于主题中的代码测试调试场景。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文提出的TraceRepair多智能体框架利用运行时执行轨迹指导自动程序修复，针对LLM在代码修复中过度拟合和无法准确捕获动态行为的痛点，该方法可直接应用于主题中的代码开发、测试调试环节，通过动态推理提升修复准确性。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：3/10</li>
+<li>理由：论文未明确提及开源代码、预训练模型或公开数据集的提供情况，摘要中仅描述了方法框架和实验结果，缺乏代码可获得性的直接证据。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为72.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_12">摘要</h3>
+<p>Automated Program Repair (APR) struggles with complex logic errors and silent failures. Current LLM-based APR methods are mostly static, relying on source code and basic test outputs, which fail to accurately capture complex runtime behaviors and dynamic data dependencies. While incorporating runtime evidence like execution traces exposes concrete state transitions, a single LLM interpreting this in isolation often overfits to specific hypotheses, producing patches that satisfy tests by coincidence rather than correct logic. Therefore, runtime evidence should act as objective constraints rather than mere additional input. We propose TraceRepair, a multi-agent framework that leverages runtime facts as shared constraints for patch validation. A probe agent captures execution snapshots of critical variables to form an objective repair basis. Meanwhile, a committee of specialized agents cross-verifies candidate patches to expose inconsistencies and iteratively refine them. Evaluated on the Defects4J benchmark, TraceRepair correctly fixes 392 defects, substantially outperforming existing LLM-based approaches. Extensive experiments demonstrate improved efficiency and strong generalization on a newly constructed dataset of recent bugs, confirming that performance gains arise from dynamic reasoning rather than memorization.</p>
+<p><a href="https://arxiv.org/abs/2604.02647">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.02647.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.02647">下载Tex</a></p>
+<h2 id="chatsva-bridging-sva-generation-for-hardware-verification-via-task-specific-llms">ChatSVA: Bridging SVA Generation for Hardware Verification via Task-Specific LLMs</h2>
+<h3 id="_13">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：8/10</li>
+<li>理由：论文直接使用“Large Language Models (LLMs)”、“multi-agent framework”、“SystemVerilog Assertions (SVAs)”、“formal property verification”等技术术语，与研究主题中的“大语言模型”、“形式化验证”高度匹配。但论文聚焦硬件验证（IC/RTL），而主题更广泛覆盖大型软件系统，术语如“代码开发”、“测试调试”、“系统自动化调优”未在摘要中直接出现。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：6/10</li>
+<li>理由：实验在24个RTL设计上进行，使用语法通过率、功能通过率、功能覆盖率等指标评估SVA生成，这些是硬件验证领域的相关指标。但研究主题更广泛（大型软件系统、代码开发/测试/验证/调优），论文专注于硬件验证的特定子领域（SVA生成），实验设置不完全匹配主题的广度。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：论文提出ChatSVA系统，基于多智能体框架和LLM，用于自动化生成SystemVerilog断言（SVA），解决硬件验证中手动编写SVA的痛点。这直接关联研究主题的“形式化验证”部分（SVA用于形式属性验证），并涉及LLM辅助代码生成。但未直接涉及软件系统构建、测试调试、自动化调优等其他核心方面。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：5/10</li>
+<li>理由：论文提到已公开发布在线服务（提供了URL），但未明确说明是否开源代码、提供预训练模型或公开数据集。在线服务可能提供API访问，但不一定等同于完整的代码/数据可用性。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为71.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_14">摘要</h3>
+<p>Functional verification consumes over 50% of the IC development lifecycle, where SystemVerilog Assertions (SVAs) are indispensable for formal property verification and enhanced simulation-based debugging. However, manual SVA authoring is labor-intensive and error-prone. While Large Language Models (LLMs) show promise, their direct deployment is hindered by low functional accuracy and a severe scarcity of domain-specific data. To address these challenges, we introduce ChatSVA, an end-to-end SVA generation system built upon a multi-agent framework. At its core, the AgentBridge platform enables this multi-agent approach by systematically generating high-purity datasets, overcoming the data scarcity inherent to few-shot scenarios. Evaluated on 24 RTL designs, ChatSVA achieves 98.66% syntax and 96.12% functional pass rates, generating 139.5 SVAs per design with 82.50% function coverage. This represents a 33.3 percentage point improvement in functional correctness and an over 11x enhancement in function coverage compared to the previous state-of-the-art (SOTA). ChatSVA not only sets a new SOTA in automated SVA generation but also establishes a robust framework for solving long-chain reasoning problems in few-shot, domain-specific scenarios. An online service has been publicly released at this https URL.</p>
+<p><a href="https://arxiv.org/abs/2604.02811">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.02811.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.02811">下载Tex</a></p>
+<h2 id="ai-assisted-unit-test-writing-and-test-driven-code-refactoring-a-case-study">AI-Assisted Unit Test Writing and Test-Driven Code Refactoring: A Case Study</h2>
+<h3 id="_15">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：7/10</li>
+<li>理由：论文直接讨论了AI辅助编程（如“coding models”、“AI-assisted”）、单元测试生成和代码重构，这些术语与研究主题中的“大语言模型如何辅助代码开发、测试调试”高度匹配。但未明确提及“形式化验证”或“系统自动化调优”，因此重合度较高但非完全覆盖。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：8/10</li>
+<li>理由：论文采用案例研究方法，通过生成大量单元测试、测量分支覆盖率和评估重构风险来验证AI辅助测试生成和代码重构的有效性。这些指标（如分支覆盖率、回归风险）是软件工程中测试和重构领域的常见评估标准，实验设置适配于验证AI在代码开发和维护中的辅助作用。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：9/10</li>
+<li>理由：论文提出的方法（使用编码模型进行自动化单元测试生成和后续安全重构）直接关联于研究主题中的“大语言模型如何辅助代码开发、测试调试”。它针对代码维护性差、回归风险高等痛点，通过AI辅助测试驱动重构来提升软件系统构建和优化过程。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：2/10</li>
+<li>理由：论文未明确提及提供开源代码、预训练模型或公开数据集，摘要中仅描述了案例研究的方法和结果，没有说明代码或数据的可获得性。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为71.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_16">摘要</h3>
+<p>Many software systems originate as prototypes or minimum viable products (MVPs), developed with an emphasis on delivery speed and responsiveness to changing requirements rather than long-term code maintainability. While effective for rapid delivery, this approach can result in codebases that are difficult to modify, presenting a significant opportunity cost in the era of AI-assisted or even AI-led programming. In this paper, we present a case study of using coding models for automated unit test generation and subsequent safe refactoring, with proposed code changes validated by passing tests. The study examines best practices for iteratively generating tests to capture existing system behavior, followed by model-assisted refactoring under developer supervision. We describe how this workflow constrained refactoring changes, the errors and limitations observed in both phases, the efficiency gains achieved, when manual intervention was necessary, and how we addressed the weak value misalignment we observed in models. Using this approach, we generated nearly 16,000 lines of reliable unit tests in hours rather than weeks, achieved up to 78\% branch coverage in critical modules, and significantly reduced regression risk during large-scale refactoring. These results illustrate software engineering's shift toward an empirical science, emphasizing data collection and constraining mechanisms that support fast, safe iteration.</p>
+<p><a href="https://arxiv.org/abs/2604.03135">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.03135.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.03135">下载Tex</a></p>
+<h2 id="gbqa-a-game-benchmark-for-evaluating-llms-as-quality-assurance-engineers">GBQA: A Game Benchmark for Evaluating LLMs as Quality Assurance Engineers</h2>
+<h3 id="_17">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：8/10</li>
+<li>理由：论文直接讨论LLMs（大语言模型）、bug发现、质量保证、多代理系统、ReAct循环等技术，与主题中“大语言模型辅助代码开发、测试调试”高度匹配，但未提及形式化验证或系统自动化调优的具体技术。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：实验使用游戏作为软件系统代表，包含多难度级别的人类验证bug数据集（GBQA基准），评估LLMs在动态环境中自主发现bug的能力，这适配于主题中“测试调试”和“系统自动化”的子方向，但非大型软件系统的通用标准环境。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：6/10</li>
+<li>理由：论文提出的多代理系统构建基准和基于ReAct循环的交互式代理方法，可直接应用于主题中的“测试调试”环节，针对bug发现的痛点，但未深入涉及代码生成、形式化验证或系统调优等其他核心问题。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：4/10</li>
+<li>理由：论文未明确提及开源代码、预训练模型或公开数据集的提供情况，仅介绍了基准构建方法和基线代理，缺乏关于资源可获取性的直接说明。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为70.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_18">摘要</h3>
+<p>The autonomous discovery of bugs remains a significant challenge in modern software development. Compared to code generation, the complexity of dynamic runtime environments makes bug discovery considerably harder for large language models (LLMs). In this paper, we take game development as a representative domain and introduce the Game Benchmark for Quality Assurance (GBQA), a benchmark containing 30 games and 124 human-verified bugs across three difficulty levels, to evaluate whether LLMs can autonomously detect software bugs. The benchmark is constructed using a multi-agent system that develops games and injects bugs in a scalable manner, with human experts in the loop to ensure correctness. Moreover, we provide a baseline interactive agent equipped with a multi-round ReAct loop and a memory mechanism, enabling long-horizon exploration of game environments for bug detection across different LLMs. Extensive experiments on frontier LLMs demonstrate that autonomous bug discovery remains highly challenging: the best-performing model, Claude-4.6-Opus in thinking mode, identifies only 48.39% of the verified bugs. We believe GBQA provides an adequate testbed and evaluation criterion, and that further progress on it will help close the gap in autonomous software engineering.</p>
+<p><a href="https://arxiv.org/abs/2604.02648">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.02648.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.02648">下载Tex</a></p>
+<h2 id="evaluating-the-formal-reasoning-capabilities-of-large-language-models-through-chomsky-hierarchy">Evaluating the Formal Reasoning Capabilities of Large Language Models through Chomsky Hierarchy</h2>
+<h3 id="_19">与主题的相关性</h3>
+<ul>
+<li>
+<p>技术术语的重合度</p>
+<ul>
+<li>描述：论文中使用的具体技术术语、模型名称、数据集、算法编号与主题词的匹配程度。论文是否直接讨论了与研究主题相关的核心技术？</li>
+<li>权重：0.500</li>
+<li>得分：8/10</li>
+<li>理由：论文直接讨论了大型语言模型（LLMs）、形式推理能力、乔姆斯基层级和计算理论，这些与研究主题中的“大语言模型”和“形式化验证”部分高度相关。但论文未涉及代码开发、测试调试或系统自动化调优的具体技术术语，如代码生成、调试工具或调优算法。</li>
+</ul>
+</li>
+<li>
+<p>实验设置的适配性</p>
+<ul>
+<li>描述：论文的实验环境、数据集、评估指标是否是该主题公认的标准？实验是否验证了在该主题场景下的有效性？</li>
+<li>权重：0.200</li>
+<li>得分：7/10</li>
+<li>理由：论文的实验设置（ChomskyBench基准测试）系统地评估了LLMs的形式推理能力，覆盖了乔姆斯基层级的所有级别，并使用语言识别和生成任务。这为评估LLMs在形式化验证（研究主题的一部分）方面的能力提供了适配的实验环境，但未直接涉及代码开发、测试调试或系统自动化调优的具体场景。</li>
+</ul>
+</li>
+<li>
+<p>方法论的直接关联性</p>
+<ul>
+<li>描述：论文提出的方法是否可以被直接应用于解决该主题下的核心问题？该方法是否针对该主题的已知痛点？</li>
+<li>权重：0.200</li>
+<li>得分：6/10</li>
+<li>理由：论文提出的方法（基于乔姆斯基层级的基准测试）可以间接应用于研究主题中的形式化验证部分，因为它评估了LLMs处理形式语言的能力，这与软件工程中的形式化验证相关。然而，该方法未直接解决代码开发、测试调试或系统自动化调优的核心问题，也未针对这些方面的已知痛点。</li>
+</ul>
+</li>
+<li>
+<p>代码与数据的可获得性</p>
+<ul>
+<li>描述：论文是否提供了开源代码、预训练模型或公开数据集？这对于快速跟进和应用至关重要。</li>
+<li>权重：0.100</li>
+<li>得分：4/10</li>
+<li>理由：论文中未明确提及是否提供开源代码、预训练模型或公开数据集。摘要介绍了ChomskyBench基准测试，但未说明其可用性。对于快速跟进和应用，缺乏明确的代码或数据可获得性信息。</li>
+</ul>
+</li>
+<li>
+<p>总结</p>
+<p>整体的评分为70.00。</p>
+</li>
+</ul>
+<p>上述内容由deepseek-chat生成。</p>
+<h3 id="_20">摘要</h3>
+<p>The formal reasoning capabilities of LLMs are crucial for advancing automated software engineering. However, existing benchmarks for LLMs lack systematic evaluation based on computation and complexity, leaving a critical gap in understanding their formal reasoning capabilities. Therefore, it is still unknown whether SOTA LLMs can grasp the structured, hierarchical complexity of formal languages as defined by Computation Theory. To address this, we introduce ChomskyBench, a benchmark for systematically evaluating LLMs through the lens of Chomsky Hierarchy. Unlike prior work that uses vectorized classification for neural networks, ChomskyBench is the first to combine full Chomsky Hierarchy coverage, process-trace evaluation via natural language, and deterministic symbolic verifiability. ChomskyBench is composed of a comprehensive suite of language recognition and generation tasks designed to test capabilities at each level. Extensive experiments indicate a clear performance stratification that correlates with the hierarchy's levels of complexity. Our analysis reveals a direct relationship where increasing task difficulty substantially impacts both inference length and performance. Furthermore, we find that while larger models and advanced inference methods offer notable relative gains, they face severe efficiency barriers: achieving practical reliability would require prohibitive computational costs, revealing that current limitations stem from inefficiency rather than absolute capability bounds. A time complexity analysis further indicates that LLMs are significantly less efficient than traditional algorithmic programs for these formal tasks. These results delineate the practical limits of current LLMs, highlight the indispensability of traditional software tools, and provide insights to guide the development of future LLMs with more powerful formal reasoning capabilities.</p>
+<p><a href="https://arxiv.org/abs/2604.02709">arXiv页面</a></p>
+<p><a href="https://arxiv.org/pdf/2604.02709.pdf">下载PDF</a></p>
+<p><a href="https://arxiv.org/src/2604.02709">下载Tex</a></p>
+<h2 id="_21">页面生成的统计项</h2>
+<p>本页面使用deepseek-chat模型生成，token用量统计如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">用量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">提示词缓存未命中tokens</td>
+<td style="text-align: left;">674850</td>
+</tr>
+<tr>
+<td style="text-align: left;">提示词缓存命中tokens</td>
+<td style="text-align: left;">62464</td>
+</tr>
+<tr>
+<td style="text-align: left;">补全tokens</td>
+<td style="text-align: left;">304349</td>
+</tr>
+<tr>
+<td style="text-align: left;">思考链tokens</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">总计</td>
+<td style="text-align: left;">1041663</td>
+</tr>
+</tbody>
+</table>
+<p>页面生成的总用时为8m 44s</p>
+<p>&lt;&lt; <a href="./mkdocs/docs/LLM4SE/2026-04-05.md">昨天的论文总结</a></p>
+<p>&gt;&gt; <a href="./mkdocs/docs/LLM4SE/2026-04-07.md">明天的论文总结</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
